@@ -151,6 +151,37 @@ section.paths>h2{font-family:var(--serif);font-size:28px;margin:0 0 6px}
 .pp .tag.cat{color:var(--sky);border-color:color-mix(in srgb,var(--sky) 40%,var(--line))}
 a.btn{text-decoration:none}
 
+
+/* Q&A mailbox */
+section.qa{scroll-margin-top:150px;margin-top:64px;padding:28px 0 4px;border-top:1px solid var(--line)}
+section.qa>h2{font-family:var(--serif);font-size:28px;margin:0 0 6px}
+section.qa .lede{margin:0 0 20px;color:var(--ink2);font-size:15px}
+.qa-cta{margin:0 0 28px}
+.qa-cta .cta-note{margin:10px 0 0;font-size:13px;color:var(--mute)}
+.qa-hist>h3{font-family:var(--serif);font-size:22px;margin:0 0 6px;font-weight:700}
+.qa-hist .hist-sub{margin:0 0 18px;color:var(--ink2);font-size:14.5px}
+.qa-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.qa-card{background:var(--paper);border-radius:var(--r-md);box-shadow:var(--shadow);padding:18px 18px 16px;position:relative}
+.qa-card.sample{box-shadow:inset 3px 0 0 var(--sky),var(--shadow)}
+.qa-card .card-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:10px}
+.qa-card .qdate{font-size:13px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.qa-card .tag{border-radius:6px;padding:1px 8px;font-weight:600;font-size:12.5px}
+.s-wait{background:var(--apricot-soft);color:color-mix(in srgb,var(--apricot) 70%,var(--ink))}
+.s-sample{background:var(--sky-soft);color:var(--sky)}
+.qa-q{font-size:16.5px;font-weight:600;line-height:1.55;margin:0;color:var(--ink)}
+.qa-q::before{content:"问";display:inline-block;font-size:11.5px;font-weight:700;color:var(--sage);background:var(--sage-soft);border-radius:5px;padding:0 6px;margin-right:8px;vertical-align:2px;letter-spacing:.04em}
+.qa-a{margin:14px 0 0;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--sage-soft) 70%,var(--paper));font-size:15px;line-height:1.75;color:var(--ink)}
+.qa-a::before{content:"答";display:inline-block;font-size:11.5px;font-weight:700;color:var(--paper);background:var(--sage);border-radius:5px;padding:0 6px;margin-right:8px;vertical-align:2px;letter-spacing:.04em}
+.qa-a.empty{background:transparent;padding:8px 0 0;color:var(--mute);font-size:14px}
+.qa-a.empty::before{display:none}
+.qa-empty{text-align:center;padding:36px 20px;color:var(--ink2);background:var(--paper);border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.qa-empty .ico{font-family:var(--serif);font-size:36px;color:var(--sage);margin-bottom:8px;line-height:1}
+.qa-empty p{margin:0;font-size:15px;line-height:1.7}
+.qa-empty p+p{margin-top:6px;font-size:13.5px;color:var(--mute)}
+.qa-err{margin:0 0 14px;padding:16px 18px;border-radius:var(--r-md);background:var(--apricot-soft);color:color-mix(in srgb,var(--apricot) 55%,var(--ink));font-size:14.5px;line-height:1.65}
+.qa-err a{color:inherit;font-weight:600}
+.qa-upd{margin-top:16px;font-size:13px;color:var(--mute)}
+
 /* info sections */
 section.info{margin-top:56px}
 section.info h2{font-family:var(--serif);font-size:24px;margin:0 0 14px}
@@ -402,12 +433,32 @@ const SITES=[
     <button class="btn ghost" id="jump"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>回到今天</button>
     <button class="btn primary" id="addAll"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M12 10v6M9 13h6"/></svg>全部加入日历</button>
     <a class="btn ghost" href="#other">其他路径</a>
-    <a class="btn ghost" href="qa/">升学问答</a>
+    <a class="btn ghost" href="#qa">升学问答</a>
   </div>
 </div></div>
 
 <div class="wrap">
 <main id="tl"></main>
+
+
+<section class="qa" id="qa" aria-labelledby="qa-h">
+  <h2 id="qa-h">升学问答</h2>
+  <p class="lede">升学、考试、志愿填报有不清楚的地方，写下来就好。顾问会尽快回复；问答记录会出现在下方，方便你之后回来看。</p>
+  <div class="qa-cta">
+    <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdCFAmWVLheIMIOaYdtSFhTlYpbgGW8ORLkuYVIRZX1puULGg/viewform" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      写下问题
+    </a>
+    <p class="cta-note">会打开 Google 表单，填好提交即可。不用登录。</p>
+  </div>
+  <div class="qa-hist">
+    <h3>问答记录</h3>
+    <p class="hist-sub">按提问时间从新到旧排列。</p>
+    <div id="qa-status" hidden></div>
+    <ul class="qa-list" id="qa-list" aria-live="polite"></ul>
+    <p class="qa-upd">问答最后更新：<span id="qa-upd">—</span>（香港时间）</p>
+  </div>
+</section>
 
 <section class="paths" id="other" aria-labelledby="other-h">
   <h2 id="other-h">其他升学路径</h2>
@@ -545,6 +596,66 @@ function toast(m){const t=document.getElementById('toast');t.textContent=m;t.cla
 document.getElementById('addAll').onclick=()=>{const l=calEvents(false);download(buildICS(l),'dse-jupas-2027-all.ics','已生成 '+l.length+' 个未来事件')};
 document.getElementById('jump').onclick=()=>{const t=document.querySelector('.node.now,.node.next');if(t)t.scrollIntoView({block:'center'})};
 const bar=document.getElementById('bar');new IntersectionObserver(([en])=>bar.classList.toggle('stuck',!en.isIntersecting)).observe(document.querySelector('.hero'));
+
+// ---- Q&A mailbox ----
+(function loadQA(){
+  function fmtDate(iso){
+    if(!iso)return '';
+    const d=new Date(iso);
+    if(Number.isNaN(d.getTime()))return esc(String(iso).slice(0,10));
+    const parts=new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Hong_Kong',year:'numeric',month:'numeric',day:'numeric',weekday:'short'}).formatToParts(d);
+    const g=t=>parts.find(p=>p.type===t)?.value||'';
+    return `${g('year')}年${g('month')}月${g('day')}日 · 周${(g('weekday')||'').replace('周','')}`;
+  }
+  function card(it){
+    const answered=it.status==='answered'&&it.answer;
+    const sample=it.sample||it.id==='sample-1'||(it.question||'').includes('（示例）');
+    const badge=answered
+      ?'<span class="tag s-ok">已回复</span>'
+      :'<span class="tag s-wait">待回复</span>';
+    const samp=sample?'<span class="tag s-sample">示例</span>':'';
+    const ans=answered
+      ?`<div class="qa-a">${esc(it.answer)}</div>`
+      :`<div class="qa-a empty">顾问还在准备回复，请稍后再来看。</div>`;
+    return `<li class="qa-card${sample?' sample':''}">
+      <div class="card-top"><span class="qdate">${fmtDate(it.askedAt)}</span>${badge}${samp}</div>
+      <p class="qa-q">${esc(it.question)}</p>
+      ${ans}
+    </li>`;
+  }
+  function emptyState(){
+    return `<li class="qa-empty">
+      <div class="ico">问</div>
+      <p>还没有问答记录。</p>
+      <p>你写下问题、我们回复之后，就会出现在这里。</p>
+    </li>`;
+  }
+  function showErr(msg){
+    const el=document.getElementById('qa-status');
+    el.hidden=false;
+    el.className='qa-err';
+    el.innerHTML=msg;
+  }
+  async function load(){
+    const list=document.getElementById('qa-list');
+    try{
+      const res=await fetch('qa/qa-data.json',{cache:'no-store'});
+      if(!res.ok)throw new Error('HTTP '+res.status);
+      const data=await res.json();
+      document.getElementById('qa-upd').textContent=data.updated||'—';
+      const items=Array.isArray(data.items)?[...data.items]:[];
+      items.sort((a,b)=>String(b.askedAt||'').localeCompare(String(a.askedAt||'')));
+      if(!items.length){list.innerHTML=emptyState();return}
+      list.innerHTML=items.map(card).join('');
+    }catch(e){
+      list.innerHTML='';
+      showErr('暂时无法载入问答记录。请从网站打开本页；本地直接打开文件时浏览器会拦截资料载入。');
+      document.getElementById('qa-upd').textContent='—';
+    }
+  }
+  load();
+})();
+
 window.__dse={buildICS,calEvents,EVENTS:ALL};
 </script>
 </body>
