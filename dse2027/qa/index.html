@@ -63,15 +63,25 @@ h1 small{display:block;font-size:.38em;font-weight:500;color:var(--ink2);letter-
 .s-sample{background:var(--sky-soft);color:var(--sky)}
 .qa-q{font-size:16.5px;font-weight:600;line-height:1.55;margin:0;color:var(--ink)}
 .qa-q::before{content:"问";display:inline-block;font-size:11.5px;font-weight:700;color:var(--sage);background:var(--sage-soft);border-radius:5px;padding:0 6px;margin-right:8px;vertical-align:2px;letter-spacing:.04em}
-.qa-answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-@media (max-width:560px){.qa-answers{grid-template-columns:1fr}}
-.qa-a{margin:0;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--sage-soft) 70%,var(--paper));font-size:15px;line-height:1.75;color:var(--ink);min-width:0}
+.qa-answers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:560px){.qa-answers{grid-template-columns:1fr;gap:18px;margin-top:16px}.qa-card{padding:18px 16px 16px}}
+.qa-a{margin:0;padding:16px 16px 15px;border-radius:12px;background:color-mix(in srgb,var(--sage-soft) 70%,var(--paper));font-size:16px;line-height:1.8;color:var(--ink);min-width:0}
 .qa-a.gpt{background:color-mix(in srgb,var(--sky-soft) 75%,var(--paper))}
-.qa-a .a-label{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;border-radius:5px;padding:1px 7px;margin:0 0 8px;line-height:1.4}
+.qa-a .a-label{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;border-radius:5px;padding:1px 7px;margin:0 0 10px;line-height:1.4}
 .qa-a.senior .a-label{color:var(--paper);background:var(--sage)}
 .qa-a.gpt .a-label{color:var(--paper);background:var(--sky)}
-.qa-a .a-body{margin:0}
-.qa-a.empty{background:transparent;padding:10px 0 0;color:var(--mute);font-size:14px}
+.qa-a .a-body{margin:0;font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.qa-a .a-body p{margin:0 0 .72em}
+.qa-a .a-body p:last-child{margin-bottom:0}
+.qa-a .a-list{margin:.2em 0 .9em;padding:0 0 0 1.35em;display:flex;flex-direction:column;gap:.72em}
+.qa-a .a-list:last-child{margin-bottom:0}
+.qa-a .a-list li{padding-left:.2em}
+.qa-a.senior .a-list li::marker{color:var(--sage);font-weight:700}
+.qa-a.gpt .a-list li::marker{color:var(--sky);font-weight:700}
+.qa-a .a-body a{overflow-wrap:anywhere;word-break:break-word;text-underline-offset:.22em;text-decoration-thickness:1px}
+.qa-a.gpt .a-body a{color:var(--sky)}
+.qa-a.empty{background:transparent;padding:10px 0 0;color:var(--mute);font-size:14.5px}
+.qa-a.empty .a-body{font-size:14.5px;line-height:1.65}
 .qa-a.empty .a-label{opacity:.85}
 .qa-a.empty.senior{background:transparent}
 .qa-a.empty.gpt{background:transparent}
@@ -131,12 +141,54 @@ footer .upd{margin-top:10px;display:block}
     const g=t=>parts.find(p=>p.type===t)?.value||'';
     return `${g('year')}年${g('month')}月${g('day')}日 · 周${(g('weekday')||'').replace('周','')}`;
   }
+  function linkify(escaped){
+    return escaped.replace(/https?:\/\/[^\s<]+/g,raw=>{
+      let url=raw,trail='';
+      while(url&&/[.,;:!?。，、；：\]】」』>]$/.test(url)){trail=url.slice(-1)+trail;url=url.slice(0,-1)}
+      while(url&&/[)）]/.test(url.slice(-1))){
+        const opens=(url.match(/\(/g)||[]).length+(url.match(/（/g)||[]).length;
+        const closes=(url.match(/\)/g)||[]).length+(url.match(/）/g)||[]).length;
+        if(closes<=opens)break;
+        trail=url.slice(-1)+trail;url=url.slice(0,-1);
+      }
+      if(!/^https?:\/\//.test(url))return raw;
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>${trail}`;
+    });
+  }
+  function formatInline(s){return linkify(esc(s))}
+  function numbered(line){
+    const m=String(line).match(/^\s*(\d+)\s*[）).、.]\s*([\s\S]*)$/);
+    return m?{n:Number(m[1]),rest:m[2]}:null;
+  }
+  function renderChunk(chunk){
+    const lines=chunk.split('\n').map(l=>l.trim()).filter(Boolean);
+    const parts=[];let list=[];
+    function flush(){
+      if(!list.length)return;
+      const start=list[0].n;
+      parts.push(`<ol class="a-list"${start===1?'':' start="'+start+'"'}>${list.map(it=>`<li value="${it.n}">${formatInline(it.rest)}</li>`).join('')}</ol>`);
+      list=[];
+    }
+    lines.forEach(line=>{
+      const item=numbered(line);
+      if(item&&item.rest){list.push(item);return}
+      flush();
+      parts.push(`<p>${formatInline(line)}</p>`);
+    });
+    flush();
+    return parts.join('');
+  }
+  function renderAnswer(text){
+    const raw=String(text??'').replace(/\r\n/g,'\n').trim();
+    if(!raw)return '';
+    return raw.split(/\n{2,}/).map(renderChunk).join('');
+  }
   function ansBlock(kind,label,text,emptyMsg){
     const has=!!(text&&String(text).trim());
     if(has){
-      return `<div class="qa-a ${kind}"><span class="a-label">${label}</span><div class="a-body">${esc(text)}</div></div>`;
+      return `<div class="qa-a ${kind}"><span class="a-label">${esc(label)}</span><div class="a-body">${renderAnswer(text)}</div></div>`;
     }
-    return `<div class="qa-a ${kind} empty"><span class="a-label">${label}</span><div class="a-body">${emptyMsg}</div></div>`;
+    return `<div class="qa-a ${kind} empty"><span class="a-label">${esc(label)}</span><div class="a-body">${esc(emptyMsg)}</div></div>`;
   }
   function card(it){
     const hasSenior=!!(it.answer&&String(it.answer).trim());
