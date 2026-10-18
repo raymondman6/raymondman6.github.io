@@ -80,6 +80,29 @@ h1 small{display:block;font-size:.38em;font-weight:500;color:var(--ink2);letter-
 .qa-a.gpt .a-list li::marker{color:var(--sky);font-weight:700}
 .qa-a .a-body a{overflow-wrap:anywhere;word-break:break-word;text-underline-offset:.22em;text-decoration-thickness:1px}
 .qa-a.gpt .a-body a{color:var(--sky)}
+.qa-a.is-clamped:not(.is-open) .a-body{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;
+  line-clamp:4;max-height:calc(1.8em * 4);overflow:hidden;
+}
+.a-more{
+  appearance:none;width:100%;margin:12px 0 0;min-height:40px;padding:8px 14px;
+  border:1px solid color-mix(in srgb,var(--sage) 32%,var(--line));
+  background:color-mix(in srgb,var(--paper) 78%,var(--sage-soft));
+  color:var(--sage);font:inherit;font-size:13.5px;font-weight:650;letter-spacing:.04em;
+  border-radius:var(--r-sm);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;
+}
+.qa-a.gpt .a-more{
+  border-color:color-mix(in srgb,var(--sky) 34%,var(--line));
+  background:color-mix(in srgb,var(--paper) 78%,var(--sky-soft));
+  color:var(--sky);
+}
+.a-more::after{
+  content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:translateY(-1px) rotate(45deg);
+}
+.qa-a.is-open .a-more::after{transform:translateY(1px) rotate(225deg)}
+.a-more:hover{background:var(--paper)}
+.qa-a.is-open .a-more{background:var(--paper);box-shadow:var(--shadow)}
 .qa-a.empty{background:transparent;padding:10px 0 0;color:var(--mute);font-size:14.5px}
 .qa-a.empty .a-body{font-size:14.5px;line-height:1.65}
 .qa-a.empty .a-label{opacity:.85}
@@ -230,11 +253,66 @@ footer .upd{margin-top:10px;display:block}
       items.sort((a,b)=>String(b.askedAt||'').localeCompare(String(a.askedAt||'')));
       if(!items.length){list.innerHTML=emptyState();return}
       list.innerHTML=items.map(card).join('');
+      fitClamps();
     }catch(e){
       list.innerHTML='';
       showErr('暂时无法载入问答记录。请从网站打开本页；本地直接打开文件时浏览器会拦截资料载入。<br><a href="'+FORM+'" target="_blank" rel="noopener">仍可先去写下问题 →</a>');
       document.getElementById('qa-upd').textContent='—';
     }
+  }
+  function paintMore(btn,open,label){
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.textContent=open?'收起':'展开全文';
+    btn.setAttribute('aria-label',(open?'收起':'展开全文')+'，'+label);
+  }
+  function bindMore(panel,label){
+    const body=panel.querySelector('.a-body');
+    if(!body.id) body.id='ab-'+Math.random().toString(36).slice(2,8);
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='a-more';
+    btn.setAttribute('aria-controls',body.id);
+    paintMore(btn,panel.classList.contains('is-open'),label);
+    btn.addEventListener('click',()=>{
+      const open=panel.classList.toggle('is-open');
+      paintMore(btn,open,label);
+    });
+    panel.appendChild(btn);
+    return btn;
+  }
+  function fitClamps(){
+    document.querySelectorAll('.qa-a:not(.empty)').forEach(panel=>{
+      const body=panel.querySelector('.a-body');
+      if(!body) return;
+      const open=panel.classList.contains('is-open');
+      panel.classList.remove('is-open');
+      panel.classList.add('is-clamped');
+      const clampedH=body.clientHeight;
+      panel.classList.remove('is-clamped');
+      const fullH=body.scrollHeight;
+      const needs=fullH>clampedH+2;
+      if(!needs){
+        const old=panel.querySelector('.a-more');
+        if(old) old.remove();
+        return;
+      }
+      panel.classList.add('is-clamped');
+      if(open) panel.classList.add('is-open');
+      const label=panel.querySelector('.a-label')?.textContent||'回答';
+      let btn=panel.querySelector('.a-more');
+      if(!btn) btn=bindMore(panel,label);
+      paintMore(btn,panel.classList.contains('is-open'),label);
+    });
+  }
+  let clampW=0;
+  const listEl=document.getElementById('qa-list');
+  if(window.ResizeObserver){
+    new ResizeObserver(()=>{
+      const w=listEl.clientWidth;
+      if(w===clampW) return;
+      clampW=w;
+      fitClamps();
+    }).observe(listEl);
   }
   load();
 })();
