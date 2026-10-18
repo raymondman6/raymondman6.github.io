@@ -433,7 +433,7 @@ const SITES=[
     <button class="btn ghost" id="jump"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>回到今天</button>
     <button class="btn primary" id="addAll"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M12 10v6M9 13h6"/></svg>全部加入日历</button>
     <a class="btn ghost" href="#other">其他路径</a>
-    <a class="btn ghost" href="#qa">升学问答</a>
+    <a class="btn ghost" href="qa/">升学问答</a>
   </div>
 </div></div>
 
@@ -449,7 +449,7 @@ const SITES=[
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
       写下问题
     </a>
-    <p class="cta-note">会打开 Google 表单，填好提交即可。不用登录。</p>
+    <p class="cta-note">会打开 Google 表单，填好提交即可。不用登录。<br>也可收藏<a href="qa/">独立问答页</a>。</p>
   </div>
   <div class="qa-hist">
     <h3>问答记录</h3>
@@ -595,6 +595,8 @@ function download(text,name,msg){
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),2200)}
 document.getElementById('addAll').onclick=()=>{const l=calEvents(false);download(buildICS(l),'dse-jupas-2027-all.ics','已生成 '+l.length+' 个未来事件')};
 document.getElementById('jump').onclick=()=>{const t=document.querySelector('.node.now,.node.next');if(t)t.scrollIntoView({block:'center'})};
+/* iOS Safari: same-hash in-page links are a no-op; force smooth-scroll for sticky bar anchors. */
+document.querySelectorAll('.actions a[href^="#"]').forEach(a=>{a.onclick=e=>{const t=document.getElementById(a.getAttribute('href').slice(1));if(!t)return;e.preventDefault();t.scrollIntoView({behavior:'smooth'});history.pushState(null,'',a.getAttribute('href'));}});
 const bar=document.getElementById('bar');new IntersectionObserver(([en])=>bar.classList.toggle('stuck',!en.isIntersecting)).observe(document.querySelector('.hero'));
 
 // ---- Q&A mailbox ----
