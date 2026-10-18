@@ -111,6 +111,17 @@ main{padding:10px 0 20px}
 .foot .add{border:1px solid var(--sage);background:none;color:var(--sage);border-radius:var(--r-sm);padding:5px 13px;font-weight:600;cursor:pointer;font-size:13px}
 .foot .add:hover{background:var(--sage-soft)}
 .foot .nocal{color:var(--mute)}
+.mine .card{background:linear-gradient(90deg,var(--sage-soft),var(--paper) 46%);box-shadow:inset 4px 0 0 var(--sage),var(--shadow)}
+.next.mine .card{box-shadow:inset 4px 0 0 var(--sage),0 0 0 2px var(--apricot),var(--shadow)}
+.node.mine::before{background:var(--sage)}
+.tag.my{background:var(--sage);color:var(--paper)}
+.mysched{margin-top:14px}
+.mysched h2{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 12px}
+.mysched h2 span{font-weight:400;font-size:12.5px;color:var(--mute)}
+.mysched ol{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:8px}
+.mysched li a{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:12px;background:var(--sage-soft);color:var(--ink);text-decoration:none;font-size:14px;line-height:1.3}
+.mysched li b{font-family:var(--serif);font-size:17px;color:var(--sage);min-width:42px;font-variant-numeric:tabular-nums}
+.mysched li small{display:block;font-size:11.5px;color:var(--ink2)}
 .past .card{background:transparent;box-shadow:none;border:1px dashed var(--line)}
 .past .title,.past .date b{color:var(--mute)}
 @media(max-width:520px){.body{padding-left:18px}.head{padding:14px 16px}}
@@ -138,6 +149,7 @@ footer{color:var(--mute);font-size:13px;padding:40px 0 60px;text-align:center}
    status: ok=已确认 tbc=暂定 na=未公布
    when: 自定义显示的日期文字（用于“上旬/中旬”等模糊日期）
    action:true 表示她本人需要行动的节点（截止/考试）；只有这些会成为「下一个任务」
+   mine:true 表示她报考的科目（重点标注）
    ics: 加到日历的事件 {s,e,allDay}；ics:false 表示不提供日历按钮
 */
 const EVENTS = [
@@ -218,16 +230,22 @@ const EVENTS = [
  title:'HKDSE 笔试开始',en:'Written examinations',when:'4月6日 – 5月3日（5月4日为后备日）',
  note:'正式开考。按准考证和时间表查自己每一科的日子，前一晚准备好准考证、身份证和文具，早点睡。',
  links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'chi',start:'2027-04-08',status:'tbc',cat:'考试',title:'中国语文 卷一、卷二',en:'Chinese Language 1, 2',when:'4月8日（四）上午',
+{id:'chi',mine:true,start:'2027-04-08',status:'tbc',cat:'考试',title:'中国语文 卷一、卷二',en:'Chinese Language 1, 2',when:'4月8日（四）上午',
  note:'核心科目第一场。时间表写明在上午（AM）进行，确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'eng12',start:'2027-04-09',status:'tbc',cat:'考试',title:'英国语文 卷一、卷二',en:'English Language 1, 2',when:'4月9日（五）上午',
+{id:'eng12',mine:true,start:'2027-04-09',status:'tbc',cat:'考试',title:'英国语文 卷一、卷二',en:'English Language 1, 2',when:'4月9日（五）上午',
  note:'阅读和写作。确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'eng3',start:'2027-04-10',status:'tbc',cat:'考试',title:'英国语文 卷三（聆听及综合能力）',en:'English Language 3',when:'4月10日（六）上午',
+{id:'eng3',mine:true,start:'2027-04-10',status:'tbc',cat:'考试',title:'英国语文 卷三（聆听及综合能力）',en:'English Language 3',when:'4月10日（六）上午',
  note:'记得测试耳机 / 收音机安排，按准考证的考场要求准备。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'math',start:'2027-04-12',status:'tbc',cat:'考试',title:'数学必修部分 卷一、卷二',en:'Mathematics Compulsory Part 1, 2',when:'4月12日（一）上午',
+{id:'math',mine:true,start:'2027-04-12',status:'tbc',cat:'考试',title:'数学必修部分 卷一、卷二',en:'Mathematics Compulsory Part 1, 2',when:'4月12日（一）上午',
  note:'带好考评局认可的计算机和备用电池。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'csd',start:'2027-04-13',status:'tbc',cat:'考试',title:'公民与社会发展',en:'Citizenship and Social Development',when:'4月13日（二）上午',
+{id:'csd',mine:true,start:'2027-04-13',status:'tbc',cat:'考试',title:'公民与社会发展',en:'Citizenship and Social Development',when:'4月13日（二）上午',
  note:'核心科目最后一场，之后就是你的选修科了。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'econ',mine:true,start:'2027-04-22',status:'tbc',cat:'考试',title:'经济 卷一、卷二',en:'Economics 1, 2',when:'4月22日（四）上午',
+ note:'公社之后隔了 9 天，是你的第一科选修。中间这段正好用来做经济历届试题。确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'m2',mine:true,start:'2027-04-23',status:'tbc',cat:'考试',title:'数学延伸部分 单元二（M2）',en:'Mathematics Extended Part Module 2',when:'4月23日（五）上午',
+ note:'紧接经济的第二天。M1 和 M2 同一节考试，你考的是 M2，进场前确认试卷是单元二。确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'bafs',mine:true,start:'2027-04-26',status:'tbc',cat:'考试',title:'企业、会计与财务概论 卷一、卷二',en:'BAFS 1, 2',when:'4月26日（一）上午',
+ note:'M2 之后隔一个周末，是你的最后一科。考完就全部结束啦！确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
 {id:'acl',start:'2027-04-21T17:00',status:'ok',cat:'提交材料',
  title:'应用学习 / 音乐资历 / 其他语言 / 过往学历 提交截止',en:'ApL, music, other languages, prior qualifications',when:'4月21日 17:00（如适用）',
  note:'只在你有这些成绩或资历时才需要提交。没有的话不用做任何事。',
@@ -295,6 +313,7 @@ const SITES=[
       <div class="next-t" id="nTitle">–</div>
       <div class="next-d" id="nWhen">–</div><p id="nSub"></p></div>
   </div>
+  <div class="panel mysched"><h2>我的考试日程<span>4月8日 – 4月26日 · 全部上午场（暂定）</span></h2><ol id="mySched"></ol></div>
   <div class="ribbon" id="ribbon" aria-hidden="true"></div>
 </header>
 </div>
@@ -364,7 +383,7 @@ document.getElementById('upd').textContent=UPDATED;
   h+=`<span class="me" style="left:${p}%" title="今天"></span>`;r.innerHTML=h;})();
 
 // ---- timeline ----
-const CATS=['全部',...new Set(EVENTS.map(e=>e.cat))];
+const CATS=['全部','我的科目',...new Set(EVENTS.map(e=>e.cat))];
 const chips=document.getElementById('chips');
 CATS.forEach((c,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=c;b.setAttribute('aria-pressed',i===0);
   b.onclick=()=>{chips.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));filter(c)};chips.appendChild(b)});
@@ -372,20 +391,22 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 function render(){const root=document.getElementById('tl');let html='',cur='';
   EVENTS.forEach(e=>{const p=hkParts(e.t0);const key=p.y+'-'+p.m;
     if(key!==cur){if(cur)html+='</ol></section>';cur=key;html+=`<section class="month" data-m="${key}"><h3>${MONTHS[p.m]}<span>${p.y}</span></h3><ol class="tl">`;}
-    const st=STATUS[e.status];const fz=(e.when.match(/[上中下]旬/)||[])[0];const cls=['node',e.state,e===nextEv?'next':'',e.state==='past'?'collapsed':''].join(' ');
+    const st=STATUS[e.status];const fz=(e.when.match(/[上中下]旬/)||[])[0];const cls=['node',e.state,e===nextEv?'next':'',e.state==='past'?'collapsed':'',e.mine?'mine':''].join(' ');
     const cal=e.ics===false?`<span class="nocal">${e.status==='na'?'日期未公布，暂不提供日历':'无需加入日历'}</span>`:`<button class="add" data-id="${e.id}">加到日历</button>`;
     html+=`<li class="${cls}" id="n-${e.id}" data-cat="${esc(e.cat)}"><article class="card">
       <button class="head" aria-expanded="${e.state!=='past'}"><div class="date">${fz?`<b class="fz">${fz}</b><i>${p.m+1}月</i>`:`<b>${p.d}</b><i>周${WK[p.w]}</i>`}</div>
       <div class="title">${esc(e.title)}${e.en?`<em>${esc(e.en)}</em>`:''}</div>
-      <div class="meta"><span class="when">${esc(e.when)}</span><span class="tag ${st[1]}">${st[0]}</span><span class="tag cat">${esc(e.cat)}</span>${e===nextEv?`<span class="flag">${e.state==='now'?'进行中 · 下一个截止':'下一个任务'}</span>`:(e.state==='now'?'<span class="flag now">进行中</span>':'')}</div></button>
+      <div class="meta"><span class="when">${esc(e.when)}</span><span class="tag ${st[1]}">${st[0]}</span>${e.mine?'<span class="tag my">我的科目</span>':''}<span class="tag cat">${esc(e.cat)}</span>${e===nextEv?`<span class="flag">${e.state==='now'?'进行中 · 下一个截止':'下一个任务'}</span>`:(e.state==='now'?'<span class="flag now">进行中</span>':'')}</div></button>
       <div class="body"><div><p class="tip">${esc(e.note)}</p><div class="foot">${cal}${e.links.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join('')}</div></div></div>
     </article></li>`});
   html+='</ol></section>';root.innerHTML=html;
   root.querySelectorAll('.head').forEach(h=>h.onclick=()=>{const li=h.closest('.node');li.classList.toggle('collapsed');h.setAttribute('aria-expanded',!li.classList.contains('collapsed'))});
   root.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const e=EVENTS.find(x=>x.id===b.dataset.id);download(buildICS([e]),'dse2027-'+e.id+'.ics','已生成日历事件')});}
-function filter(c){document.querySelectorAll('.node').forEach(n=>n.classList.toggle('hidden',c!=='全部'&&n.dataset.cat!==c));
+function filter(c){document.querySelectorAll('.node').forEach(n=>n.classList.toggle('hidden',c==='我的科目'?!n.classList.contains('mine'):(c!=='全部'&&n.dataset.cat!==c)));
   document.querySelectorAll('.month').forEach(m=>m.classList.toggle('hidden',!m.querySelector('.node:not(.hidden)')))}
 render();
+const SHORT={chi:['中文','卷一二'],eng12:['英文','卷一二'],eng3:['英文','卷三'],math:['数学','必修'],csd:['公社',''],econ:['经济','卷一二'],m2:['M2','单元二'],bafs:['BAFS','卷一二']};
+document.getElementById('mySched').innerHTML=EVENTS.filter(e=>e.mine).map(e=>{const p=hkParts(e.t0);const [n,sub]=SHORT[e.id]||[e.title,''];return `<li><a href="#n-${e.id}"><b>${p.m+1}/${p.d}</b><span>${esc(n)}<small>${sub?esc(sub)+' · ':''}周${WK[p.w]}</small></span></a></li>`}).join('');
 document.getElementById('sites').innerHTML=SITES.map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener"><b>${esc(t)}</b><span>${u.replace(/^https?:\/\//,'')}</span></a></li>`).join('');
 
 // ---- ICS ----
@@ -396,7 +417,7 @@ function fold(line){const enc=new TextEncoder();if(enc.encode(line).length<=75)r
 function ymd(s){return s.slice(0,10).replace(/-/g,'')}
 function nextDay(s){const t=hk(s.slice(0,10))+864e5+8*3600e3;return new Date(t).toISOString().slice(0,10).replace(/-/g,'')}
 function vevent(e){const c=e.ics||{};const L=[];const tag=STATUS[e.status][0];
-  const title=(c.title||e.title)+(e.status==='tbc'?'（暂定）':'');
+  const title=(e.mine?'★ ':'')+(c.title||e.title)+(e.status==='tbc'?'（暂定）':'');
   L.push('BEGIN:VEVENT','UID:'+e.id+'@dse2027.local','DTSTAMP:'+icsDate(Date.now()));
   if(c.s){L.push('DTSTART:'+icsDate(hk(c.s)),'DTEND:'+icsDate(hk(c.e||c.s)+(c.e?0:30*60e3)))}
   else if(e.start.includes('T')&&!e.end){const t=hk(e.start);L.push('DTSTART:'+icsDate(t-30*60e3),'DTEND:'+icsDate(t))}
