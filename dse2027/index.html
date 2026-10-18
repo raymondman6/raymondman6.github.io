@@ -64,14 +64,16 @@ h1 small{display:block;font-size:.42em;font-weight:500;color:var(--ink2);letter-
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:none;border:1px solid var(--line);background:transparent;border-radius:var(--r-sm);padding:6px 14px;font-size:14px;cursor:pointer;color:var(--ink2);transition:background .2s,color .2s,border-color .2s}
 .chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.actions{display:flex;gap:8px;margin-top:10px}
-.btn{border:0;border-radius:var(--r-sm);padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:transform .15s}
+.actions{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+@media(max-width:400px){.btn{padding:9px 13px}}
+.btn{white-space:nowrap;border:0;border-radius:var(--r-sm);padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:transform .15s}
 .btn:active{transform:scale(.97)}
 .btn.primary{background:var(--sage);color:var(--paper)}
 .btn.ghost{background:var(--paper);color:var(--ink);box-shadow:var(--shadow)}
 .btn svg{width:16px;height:16px}
 
 /* timeline */
+[id^=n-]{scroll-margin-top:130px}
 main{padding:10px 0 20px}
 .month{margin-top:34px}
 .month h3{font-family:var(--serif);font-size:24px;font-weight:700;margin:0 0 14px;display:flex;align-items:baseline;gap:10px}
@@ -126,6 +128,28 @@ main{padding:10px 0 20px}
 .past .title,.past .date b{color:var(--mute)}
 @media(max-width:520px){.body{padding-left:18px}.head{padding:14px 16px}}
 .hidden{display:none}
+
+/* other paths */
+section.paths{scroll-margin-top:150px;margin-top:64px;padding:28px 0 4px;border-top:1px solid var(--line)}
+section.paths>h2{font-family:var(--serif);font-size:28px;margin:0 0 6px}
+.lede{margin:0 0 20px;color:var(--ink2);font-size:15px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:14px;background:color-mix(in srgb,var(--ink) 7%,transparent)}
+.seg button{border:0;background:none;border-radius:10px;padding:10px 8px;font-size:14.5px;font-weight:600;color:var(--ink2);cursor:pointer;transition:background .2s,color .2s}
+.seg button[aria-selected=true]{background:var(--paper);color:var(--ink);box-shadow:var(--shadow)}
+.pp{padding-top:20px}
+.intro{font-family:var(--serif);font-size:18px;line-height:1.75;margin:0 0 18px}
+.facts{margin:0;display:grid;gap:0;background:var(--paper);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:4px 20px}
+.facts>div{padding:14px 0;border-top:1px solid var(--line)}
+.facts>div:first-child{border-top:0}
+@media(min-width:640px){.facts>div{display:grid;grid-template-columns:8.5em 1fr;gap:16px}}
+.facts dt{font-weight:700;color:var(--sky);font-size:14.5px;margin-bottom:4px}
+.facts dd{margin:0;font-size:15px;line-height:1.75}
+.facts .src{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px;font-size:13px}
+.pp-h{font-family:var(--serif);font-size:20px;margin:30px 0 14px}
+.pp .tl .node::before{border-color:var(--sky)}
+.pp .tl .node.past::before{border-color:var(--mute)}
+.pp .tag.cat{color:var(--sky);border-color:color-mix(in srgb,var(--sky) 40%,var(--line))}
+a.btn{text-decoration:none}
 
 /* info sections */
 section.info{margin-top:56px}
@@ -284,6 +308,60 @@ const EVENTS = [
  note:'主轮没拿到心仪学位的同学还有机会。留意 JUPAS 通知。',
  links:[['JUPAS 重要日期','https://www.jupas.edu.hk/en/application-procedures/application-other-submission-deadline/application-key-dates-and-deadlines']]}
 ];
+
+/* ===== 其他升学路径（与主线分开维护）=====
+   items 字段与 EVENTS 相同；box:['待定','12月'] 自定义日期框文字（未公布/模糊日期用）
+   facts: [标题, 内容, [[链接文字, 网址], ...]]  —— 链接文字里注明资料年份 */
+const MAINLAND = {
+ intro:'内地高校招收香港中学文凭考试学生计划（俗称「文凭试收生计划 / 免试收生」）：内地高校直接凭 DSE 成绩录取，不用另考内地联招试。',
+ facts:[
+  ['是什么','2026/27 学年共 165 所内地高校参加，按 DSE 成绩择优录取当年的香港考生。2027/28 的院校名单未公布。',[['政府新闻稿（2025年12月）','https://www.info.gov.hk/gia/general/202512/01/P2025120100289.htm']]],
+  ['最低要求','一般为「3、3、2、A」：中文、英文 Level 3 或以上，数学 Level 2 或以上，公社「达标」。很多院校、专业要求更高，或指定选修科成绩，例如清华要求核心三科都达 Level 4。',[['教育部《2026年…办法》（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/way.pdf']]],
+  ['怎么报','在广东省教育考试院网站 eea.gd.gov.cn →「报名报考」→「香港文凭试招生」网上报名。要用香港身份证、回乡证（港澳居民来往内地通行证）或居住证、证件相；2026/27 报名费 HK$460。',[['报名须知（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/NA_chinese_only.pdf'],['eea.gd.gov.cn','https://eea.gd.gov.cn/']]],
+  ['填几个志愿','最多 4 所学校，每所 4 个专业，按顺序考虑，最后只会获一所学校的一个专业录取。部分院校会安排面试或术科考试（不是每所都有）。',[['报名须知（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/NA_chinese_only.pdf']]],
+  ['资助','在指定内地院校读学士的香港学生，可申请「内地大学升学资助计划」。2026/27 的免入息审查资助按院校距离分三档：每年 HK$5,900 / 6,200 / 6,500；也可选经入息审查资助。',[['教育局 资助计划','https://www.edb.gov.hk/tc/edu-system/postsecondary/policy-doc/musss/index.html'],['学资处说明','https://www.wfsfaa.gov.hk/tc/other/grantsloans/mainland/9.1.13.htm']]],
+  ['另一条路：港澳台联招考试','「普通高校联合招收华侨港澳台学生」要另外考试（2026 年：3月1–15日报名，5月23–24日考试）。2027 年简章未公布。DSE 考生一般走上面的免试计划就够了。',[['2026 联招简章','https://www.gatzs.com.cn/gatzs/pz/hongkong/202601/20260120/2293447012.html'],['考评局 联招考试页','https://www.hkeaa.edu.hk/tc/ipe/jee/']]]
+ ],
+ items:[
+ {id:'m-expo',start:'2026-11-29',status:'na',cat:'内地升学',box:['待定','11月'],title:'内地高等教育展 2027/28',when:'未公布（参考：上一届 2025年11月29–30日）',
+  note:'可以当面问各内地院校的收生要求，见到再决定要不要报。日期公布后留意教育局页面。',links:[['教育局 计划页面','https://www.edb.gov.hk/en/edu-system/postsecondary/policy-doc/pilot-scheme.html']],ics:false},
+ {id:'m-apply',start:'2026-12-01',status:'na',cat:'内地升学',box:['待定','12月'],title:'免试收生 网上报名',en:'Online application',when:'未公布（参考：2025年12月1日 – 31日 23:59）',
+  note:'2027/28 日期还没公布，按往年大概 12 月整个月。先准备好回乡证（要在有效期内）和证件相，报名时就要上传。',links:[['重要日程（2026年7月更新）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/IN_chinese_only.pdf'],['报名须知（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/NA_chinese_only.pdf']],ics:false},
+ {id:'m-fee',start:'2027-01-31',status:'na',cat:'内地升学',box:['待定','1月'],title:'审核通过后缴费、确认报名',when:'未公布（参考：2026年1月31日前缴费，2月14日前可查考生号）',
+  note:'光提交申请不算报名成功，要等审核通过、缴费，拿到「考生号」才算。记得定期登入看状态。',links:[['报名须知（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/NA_chinese_only.pdf']],ics:false},
+ {id:'m-choice',start:'2027-05-14',status:'na',cat:'内地升学',box:['待定','5–6月'],title:'修改志愿 / 上传 SLP',when:'未公布（参考：志愿 2026年5月14日前；SLP 6月14日前）',
+  note:'考完 DSE 后可以再调整内地志愿；上传 SLP 不是必须，但有助院校了解你。校长推荐文件由学校上传。',links:[['重要日程（2026年7月更新）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/IN_chinese_only.pdf']],ics:false},
+ {id:'m-interview',start:'2027-05-20',status:'na',cat:'内地升学',box:['5–7月',''],title:'部分院校面试 / 术科考试',when:'参考：2026年5月至7月',
+  note:'不是每所都有面试。报了的院校如有安排，会自己通知你，留意电邮和系统。',links:[['重要日程（2026年7月更新）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/IN_chinese_only.pdf']],ics:false},
+ {id:'m-offer',start:'2027-07-24',status:'na',cat:'内地升学',box:['待定','7月下旬'],title:'公布录取结果 · 补录',when:'未公布（参考 2026：7月24/26/27/28日 09:00 按志愿公布；7月28日 16:00 – 30日 16:00 补录）',
+  note:'DSE 放榜后约 10 天按第一至第四志愿分批公布。没被录取但达到最低要求，可以补录（再填 2 所学校）。同期也要留意 JUPAS 放榜（8月4日）。',links:[['政府新闻稿（2026年7月）','https://www.info.gov.hk/gia/general/202607/24/P2026072300253.htm']],ics:false}
+ ]
+};
+const SUBDEGREE = {
+ intro:'副学位包括副学士（Associate Degree）和高级文凭（Higher Diploma），一般两年。读完可以直接工作，或者争取升读大学高年级。',
+ facts:[
+  ['入学要求','DSE 五科 Level 2 或以上，包括中文和英文。M2 Level 2 可以算其中一科；公社需要「达标」。个别课程会另有要求。你的七科（中、英、数、公社、M2、BAFS、经济）完全覆盖这个要求。',[['考评局说明','https://www.hkeaa.edu.hk/en/recognition/local_studies_and_employment/local/']]],
+  ['怎么报：E-APP','教育局的 E-APP 是一站式平台，让应届 DSE 考生在放榜前报读 JUPAS 以外的副学位和自资学士课程（超过 460 个）。不影响你的 JUPAS 申请，两边可以同时报。院校会先处理首轮的申请。',[['E-APP（2027/28）','https://www.eapp.gov.hk/tc/']]],
+  ['之后升大学','教资会资助大学每年提供约 5,000 个高年级（Year 3）学士学额给副学位毕业生，要凭成绩竞争。副学士一般可衔接四年制学士的三年级。',[['教育局 资助课程','https://www.edb.gov.hk/en/edu-system/postsecondary/local-higher-edu/publicly-funded-programmes/index.html'],['Concourse 副学位问答','https://www.cspe.edu.hk/en/ipass/q-and-a/']]],
+  ['学费资助','读全日制经本地评审的自资副学位，可经学资处申请「专上学生资助计划」（FASP，需入息审查）和/或免入息审查贷款（NLSPS）。',[['学资处 FASP','https://www.wfsfaa.gov.hk/sfo/tc/postsecondary/fasp/overview.htm']]],
+  ['主要院校（部分）','以下都是 E-APP 参与院校，完整名单见 E-APP 或 Concourse。',[['港大 HKU SPACE 社区学院','https://www.hkuspace.hku.hk/cc/'],['中大 专业进修学院','https://www.scs.cuhk.edu.hk/'],['理大 香港专上学院 HKCC','https://www.hkcc-polyu.edu.hk/'],['浸大 国际学院 CIE','https://www.cie.hkbu.edu.hk/'],['岭大 持续进修学院 LiFE','https://www.ln.edu.hk/life/admissions/ad-hd-diploma-programmes/key-dates'],['VTC 职业训练局','https://www.vtc.edu.hk/admission/en/'],['院校名单（Concourse）','https://www.cspe.edu.hk/en/institution-list.html']]]
+ ],
+ items:[
+ {id:'s-open',start:'2026-12-03T10:00',status:'ok',cat:'副学士',title:'E-APP 首轮申请开始',en:'Main Round opens',when:'12月3日 10:00',
+  note:'可以开始在 E-APP 开户报读。不急着当天报，但建议考 DSE 前就把心仪课程报好，当作 JUPAS 的后备。',links:[['E-APP（2027/28）','https://www.eapp.gov.hk/tc/']],
+  ics:{s:'2026-12-03T10:00',e:'2026-12-03T10:30',title:'E-APP 首轮申请开始 (10:00)'}},
+ {id:'s-main',start:'2027-05-18T23:59',status:'ok',cat:'副学士',title:'E-APP 首轮申请截止',en:'Main Round deadline',when:'5月18日 23:59',
+  note:'院校会先处理首轮的申请，所以想报副学位做后备，最好在这天之前交。',links:[['E-APP（2027/28）','https://www.eapp.gov.hk/tc/']]},
+ {id:'s-second',start:'2027-05-21T10:00',end:'2027-07-06T23:59',status:'ok',cat:'副学士',title:'E-APP 次轮申请',en:'Second Round',when:'5月21日 10:00 – 7月6日 23:59',
+  note:'错过首轮还可以在次轮报，但要在 DSE 放榜（7月14日）前完成。',links:[['E-APP（2027/28）','https://www.eapp.gov.hk/tc/']],
+  ics:{s:'2027-07-06T23:00',e:'2027-07-06T23:59',title:'E-APP 次轮申请截止 (23:59)'}},
+ {id:'s-life1',start:'2027-06-04',status:'tbc',cat:'副学士',title:'岭大 LiFE 资讯日',en:'Information Day',when:'6月4日（五）',
+  note:'例子之一：去资讯日可以直接问课程内容和升学率。其他院校的资讯日看各自网站。院校注明日期可能更改。',links:[['LiFE 重要日期（2026年公布）','https://www.ln.edu.hk/life/admissions/ad-hd-diploma-programmes/key-dates']]},
+ {id:'s-life2',start:'2027-07-02',status:'tbc',cat:'副学士',title:'岭大 LiFE 资讯日',en:'Information Day',when:'7月2日（五）',
+  note:'放榜前最后一次资讯日（放榜周 7月13–16日、JUPAS 放榜 8月4–5日也有）。院校注明日期可能更改。',links:[['LiFE 重要日期（2026年公布）','https://www.ln.edu.hk/life/admissions/ad-hd-diploma-programmes/key-dates']]}
+ ]
+};
+const PATHS=[['mainland','内地高校（DSE 收生）',MAINLAND],['subdegree','副学士 / 高级文凭',SUBDEGREE]];
 const UPDATED='2026-10-18';
 const SITES=[
  ['JUPAS 大学联合招生办法','https://www.jupas.edu.hk'],
@@ -323,11 +401,18 @@ const SITES=[
   <div class="actions">
     <button class="btn ghost" id="jump"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>回到今天</button>
     <button class="btn primary" id="addAll"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M12 10v6M9 13h6"/></svg>全部加入日历</button>
+    <a class="btn ghost" href="#other">其他路径</a>
   </div>
 </div></div>
 
 <div class="wrap">
 <main id="tl"></main>
+
+<section class="paths" id="other" aria-labelledby="other-h">
+  <h2 id="other-h">其他升学路径</h2>
+  <p class="lede">联招以外的两条路，可以和 JUPAS 同时准备，当作后备或另一个选择。日期和资料都标了来源年份。</p>
+  <div id="paths"></div>
+</section>
 
 <section class="info howto">
   <h2>怎么用</h2>
@@ -364,6 +449,8 @@ const today=dayIndex(now);
 EVENTS.forEach(e=>{e.t0=hk(e.start);e.t1=hk(e.end||e.start,true);
   e.state=e.t1<now?'past':(e.t0<=now?'now':'future');});
 EVENTS.sort((a,b)=>a.t0-b.t0);
+PATHS.forEach(([,,P])=>P.items.forEach(e=>{e.t0=hk(e.start);e.t1=hk(e.end||e.start,true);e.state=e.t1<now?'past':(e.t0<=now?'now':'future');e.path=true}));
+const ALL=[...EVENTS,...PATHS.flatMap(x=>x[2].items)];
 const isFuzzy=e=>/[上中下]旬|未公布/.test(e.when);
 const nextEv=EVENTS.find(e=>e.action&&!isFuzzy(e)&&e.state!=='past');
 
@@ -388,23 +475,39 @@ const chips=document.getElementById('chips');
 CATS.forEach((c,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=c;b.setAttribute('aria-pressed',i===0);
   b.onclick=()=>{chips.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));filter(c)};chips.appendChild(b)});
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function render(){const root=document.getElementById('tl');let html='',cur='';
-  EVENTS.forEach(e=>{const p=hkParts(e.t0);const key=p.y+'-'+p.m;
-    if(key!==cur){if(cur)html+='</ol></section>';cur=key;html+=`<section class="month" data-m="${key}"><h3>${MONTHS[p.m]}<span>${p.y}</span></h3><ol class="tl">`;}
-    const st=STATUS[e.status];const fz=(e.when.match(/[上中下]旬/)||[])[0];const cls=['node',e.state,e===nextEv?'next':'',e.state==='past'?'collapsed':'',e.mine?'mine':''].join(' ');
+function cardHTML(e,p){
+    const st=STATUS[e.status];const fz=e.box?null:(e.when.match(/[上中下]旬/)||[])[0];const cls=['node',e.state,e===nextEv?'next':'',e.state==='past'?'collapsed':'',e.mine?'mine':''].join(' ');
     const cal=e.ics===false?`<span class="nocal">${e.status==='na'?'日期未公布，暂不提供日历':'无需加入日历'}</span>`:`<button class="add" data-id="${e.id}">加到日历</button>`;
-    html+=`<li class="${cls}" id="n-${e.id}" data-cat="${esc(e.cat)}"><article class="card">
-      <button class="head" aria-expanded="${e.state!=='past'}"><div class="date">${fz?`<b class="fz">${fz}</b><i>${p.m+1}月</i>`:`<b>${p.d}</b><i>周${WK[p.w]}</i>`}</div>
+    return `<li class="${cls}" id="n-${e.id}" data-cat="${esc(e.cat)}"><article class="card">
+      <button class="head" aria-expanded="${e.state!=='past'}"><div class="date">${e.box?`<b class="fz">${e.box[0]}</b><i>${e.box[1]}</i>`:fz?`<b class="fz">${fz}</b><i>${p.m+1}月</i>`:`<b>${p.d}</b><i>周${WK[p.w]}</i>`}</div>
       <div class="title">${esc(e.title)}${e.en?`<em>${esc(e.en)}</em>`:''}</div>
       <div class="meta"><span class="when">${esc(e.when)}</span><span class="tag ${st[1]}">${st[0]}</span>${e.mine?'<span class="tag my">我的科目</span>':''}<span class="tag cat">${esc(e.cat)}</span>${e===nextEv?`<span class="flag">${e.state==='now'?'进行中 · 下一个截止':'下一个任务'}</span>`:(e.state==='now'?'<span class="flag now">进行中</span>':'')}</div></button>
       <div class="body"><div><p class="tip">${esc(e.note)}</p><div class="foot">${cal}${e.links.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join('')}</div></div></div>
-    </article></li>`});
+    </article></li>`}
+function render(){const root=document.getElementById('tl');let html='',cur='';
+  EVENTS.forEach(e=>{const p=hkParts(e.t0);const key=p.y+'-'+p.m;
+    if(key!==cur){if(cur)html+='</ol></section>';cur=key;html+=`<section class="month" data-m="${key}"><h3>${MONTHS[p.m]}<span>${p.y}</span></h3><ol class="tl">`;}
+    html+=cardHTML(e,p);});
   html+='</ol></section>';root.innerHTML=html;
+  bindCards(root);}
+function bindCards(root){
   root.querySelectorAll('.head').forEach(h=>h.onclick=()=>{const li=h.closest('.node');li.classList.toggle('collapsed');h.setAttribute('aria-expanded',!li.classList.contains('collapsed'))});
-  root.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const e=EVENTS.find(x=>x.id===b.dataset.id);download(buildICS([e]),'dse2027-'+e.id+'.ics','已生成日历事件')});}
-function filter(c){document.querySelectorAll('.node').forEach(n=>n.classList.toggle('hidden',c==='我的科目'?!n.classList.contains('mine'):(c!=='全部'&&n.dataset.cat!==c)));
-  document.querySelectorAll('.month').forEach(m=>m.classList.toggle('hidden',!m.querySelector('.node:not(.hidden)')))}
+  root.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const e=ALL.find(x=>x.id===b.dataset.id);download(buildICS([e]),'dse2027-'+e.id+'.ics','已生成日历事件')});}
+function filter(c){document.querySelectorAll('#tl .node').forEach(n=>n.classList.toggle('hidden',c==='我的科目'?!n.classList.contains('mine'):(c!=='全部'&&n.dataset.cat!==c)));
+  document.querySelectorAll('#tl .month').forEach(m=>m.classList.toggle('hidden',!m.querySelector('.node:not(.hidden)')))}
 render();
+(function paths(){const root=document.getElementById('paths');
+  const tabs=PATHS.map(([k,l],i)=>`<button role="tab" id="tab-${k}" aria-controls="pp-${k}" aria-selected="${i===0}" tabindex="${i===0?0:-1}">${l}</button>`).join('');
+  const panels=PATHS.map(([k,l,P],i)=>`<div class="pp" role="tabpanel" id="pp-${k}" aria-labelledby="tab-${k}" ${i?'hidden':''}>
+    <p class="intro">${esc(P.intro)}</p>
+    <dl class="facts">${P.facts.map(([t,d,ls])=>`<div><dt>${esc(t)}</dt><dd>${esc(d)}<span class="src">${ls.map(([lt,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(lt)}</a>`).join('')}</span></dd></div>`).join('')}</dl>
+    <h3 class="pp-h">时间点</h3>
+    <ol class="tl">${P.items.map(e=>cardHTML(e,hkParts(e.t0))).join('')}</ol></div>`).join('');
+  root.innerHTML=`<div class="seg" role="tablist" aria-label="选择升学路径">${tabs}</div>${panels}`;
+  const bs=[...root.querySelectorAll('[role=tab]')];
+  const sel=t=>{bs.forEach(b=>{const on=b===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;document.getElementById(b.getAttribute('aria-controls')).hidden=!on});t.focus()};
+  bs.forEach((b,i)=>{b.onclick=()=>sel(b);b.onkeydown=ev=>{if(ev.key==='ArrowRight'||ev.key==='ArrowLeft'){sel(bs[(i+(ev.key==='ArrowRight'?1:bs.length-1))%bs.length])}}});
+  bindCards(root);})();
 const SHORT={chi:['中文','卷一二'],eng12:['英文','卷一二'],eng3:['英文','卷三'],math:['数学','必修'],csd:['公社',''],econ:['经济','卷一二'],m2:['M2','单元二'],bafs:['BAFS','卷一二']};
 document.getElementById('mySched').innerHTML=EVENTS.filter(e=>e.mine).map(e=>{const p=hkParts(e.t0);const [n,sub]=SHORT[e.id]||[e.title,''];return `<li><a href="#n-${e.id}"><b>${p.m+1}/${p.d}</b><span>${esc(n)}<small>${sub?esc(sub)+' · ':''}周${WK[p.w]}</small></span></a></li>`}).join('');
 document.getElementById('sites').innerHTML=SITES.map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener"><b>${esc(t)}</b><span>${u.replace(/^https?:\/\//,'')}</span></a></li>`).join('');
@@ -417,7 +520,7 @@ function fold(line){const enc=new TextEncoder();if(enc.encode(line).length<=75)r
 function ymd(s){return s.slice(0,10).replace(/-/g,'')}
 function nextDay(s){const t=hk(s.slice(0,10))+864e5+8*3600e3;return new Date(t).toISOString().slice(0,10).replace(/-/g,'')}
 function vevent(e){const c=e.ics||{};const L=[];const tag=STATUS[e.status][0];
-  const title=(e.mine?'★ ':'')+(c.title||e.title)+(e.status==='tbc'?'（暂定）':'');
+  const title=(e.mine?'★ ':'')+(e.path?'['+e.cat+'] ':'')+(c.title||e.title)+(e.status==='tbc'?'（暂定）':'');
   L.push('BEGIN:VEVENT','UID:'+e.id+'@dse2027.local','DTSTAMP:'+icsDate(Date.now()));
   if(c.s){L.push('DTSTART:'+icsDate(hk(c.s)),'DTEND:'+icsDate(hk(c.e||c.s)+(c.e?0:30*60e3)))}
   else if(e.start.includes('T')&&!e.end){const t=hk(e.start);L.push('DTSTART:'+icsDate(t-30*60e3),'DTEND:'+icsDate(t))}
@@ -430,7 +533,7 @@ function vevent(e){const c=e.ics||{};const L=[];const tag=STATUS[e.status][0];
   L.push('END:VEVENT');return L;}
 function buildICS(list){const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//DSE2027 Task Line//ZH','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:DSE 2027 升学任务线','X-WR-TIMEZONE:Asia/Hong_Kong'];
   list.forEach(e=>L.push(...vevent(e)));L.push('END:VCALENDAR');return L.map(fold).join('\r\n')+'\r\n'}
-function calEvents(all){return EVENTS.filter(e=>e.ics!==false&&(all||e.state!=='past'))}
+function calEvents(all){return ALL.filter(e=>e.ics!==false&&(all||e.state!=='past'))}
 const isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
 function download(text,name,msg){
   if(isIOS){location.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(text);}
@@ -441,7 +544,7 @@ function toast(m){const t=document.getElementById('toast');t.textContent=m;t.cla
 document.getElementById('addAll').onclick=()=>{const l=calEvents(false);download(buildICS(l),'dse-jupas-2027-all.ics','已生成 '+l.length+' 个未来事件')};
 document.getElementById('jump').onclick=()=>{const t=document.querySelector('.node.now,.node.next');if(t)t.scrollIntoView({block:'center'})};
 const bar=document.getElementById('bar');new IntersectionObserver(([en])=>bar.classList.toggle('stuck',!en.isIntersecting)).observe(document.querySelector('.hero'));
-window.__dse={buildICS,calEvents,EVENTS};
+window.__dse={buildICS,calEvents,EVENTS:ALL};
 </script>
 </body>
 </html>
