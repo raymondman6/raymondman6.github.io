@@ -30,7 +30,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--sans);le
   padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
 a{color:var(--sage);text-underline-offset:3px;text-decoration-thickness:1px}
 :focus-visible{outline:2px solid var(--apricot);outline-offset:3px;border-radius:8px}
-.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
 
 .back{display:inline-flex;align-items:center;gap:6px;margin:22px 0 28px;font-size:14px;font-weight:600;color:var(--ink2);text-decoration:none}
 .back:hover{color:var(--sage)}
@@ -63,10 +63,18 @@ h1 small{display:block;font-size:.38em;font-weight:500;color:var(--ink2);letter-
 .s-sample{background:var(--sky-soft);color:var(--sky)}
 .qa-q{font-size:16.5px;font-weight:600;line-height:1.55;margin:0;color:var(--ink)}
 .qa-q::before{content:"问";display:inline-block;font-size:11.5px;font-weight:700;color:var(--sage);background:var(--sage-soft);border-radius:5px;padding:0 6px;margin-right:8px;vertical-align:2px;letter-spacing:.04em}
-.qa-a{margin:14px 0 0;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--sage-soft) 70%,var(--paper));font-size:15px;line-height:1.75;color:var(--ink)}
-.qa-a::before{content:"答";display:inline-block;font-size:11.5px;font-weight:700;color:var(--paper);background:var(--sage);border-radius:5px;padding:0 6px;margin-right:8px;vertical-align:2px;letter-spacing:.04em}
-.qa-a.empty{background:transparent;padding:8px 0 0;color:var(--mute);font-size:14px}
-.qa-a.empty::before{display:none}
+.qa-answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media (max-width:560px){.qa-answers{grid-template-columns:1fr}}
+.qa-a{margin:0;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--sage-soft) 70%,var(--paper));font-size:15px;line-height:1.75;color:var(--ink);min-width:0}
+.qa-a.gpt{background:color-mix(in srgb,var(--sky-soft) 75%,var(--paper))}
+.qa-a .a-label{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;border-radius:5px;padding:1px 7px;margin:0 0 8px;line-height:1.4}
+.qa-a.senior .a-label{color:var(--paper);background:var(--sage)}
+.qa-a.gpt .a-label{color:var(--paper);background:var(--sky)}
+.qa-a .a-body{margin:0}
+.qa-a.empty{background:transparent;padding:10px 0 0;color:var(--mute);font-size:14px}
+.qa-a.empty .a-label{opacity:.85}
+.qa-a.empty.senior{background:transparent}
+.qa-a.empty.gpt{background:transparent}
 .qa-empty{text-align:center;padding:36px 20px;color:var(--ink2);background:var(--paper);border-radius:var(--r-lg);box-shadow:var(--shadow)}
 .qa-empty .ico{font-family:var(--serif);font-size:36px;color:var(--sage);margin-bottom:8px;line-height:1}
 .qa-empty p{margin:0;font-size:15px;line-height:1.7}
@@ -106,7 +114,7 @@ footer .upd{margin-top:10px;display:block}
   </div>
 
   <footer>
-    回答由升学顾问提供，仅供参考；请以考评局与 JUPAS 最新公布为准。
+    回答分别来自学长学姐与 ChatGPT，仅供参考；请以考评局与 JUPAS 最新公布为准。
     <span class="upd">最后更新：<span id="qa-upd">—</span>（香港时间）</span>
   </footer>
 </div>
@@ -123,20 +131,27 @@ footer .upd{margin-top:10px;display:block}
     const g=t=>parts.find(p=>p.type===t)?.value||'';
     return `${g('year')}年${g('month')}月${g('day')}日 · 周${(g('weekday')||'').replace('周','')}`;
   }
+  function ansBlock(kind,label,text,emptyMsg){
+    const has=!!(text&&String(text).trim());
+    if(has){
+      return `<div class="qa-a ${kind}"><span class="a-label">${label}</span><div class="a-body">${esc(text)}</div></div>`;
+    }
+    return `<div class="qa-a ${kind} empty"><span class="a-label">${label}</span><div class="a-body">${emptyMsg}</div></div>`;
+  }
   function card(it){
-    const answered=it.status==='answered'&&it.answer;
+    const hasSenior=!!(it.answer&&String(it.answer).trim());
+    const hasGpt=!!(it.answerGpt&&String(it.answerGpt).trim());
+    const answered=it.status==='answered'||hasSenior||hasGpt;
     const sample=it.sample||it.id==='sample-1'||(it.question||'').includes('（示例）');
     const badge=answered
       ?'<span class="tag s-ok">已回复</span>'
       :'<span class="tag s-wait">待回复</span>';
     const samp=sample?'<span class="tag s-sample">示例</span>':'';
-    const ans=answered
-      ?`<div class="qa-a">${esc(it.answer)}</div>`
-      :`<div class="qa-a empty">顾问还在准备回复，请稍后再来看。</div>`;
+    const answers=`<div class="qa-answers">${ansBlock('senior','学长学姐',it.answer,'等待回复')}${ansBlock('gpt','ChatGPT',it.answerGpt,'等待 ChatGPT 回复')}</div>`;
     return `<li class="qa-card${sample?' sample':''}">
       <div class="card-top"><span class="qdate">${fmtDate(it.askedAt)}</span>${badge}${samp}</div>
       <p class="qa-q">${esc(it.question)}</p>
-      ${ans}
+      ${answers}
     </li>`;
   }
   function emptyState(){
