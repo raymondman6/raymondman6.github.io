@@ -1,0 +1,676 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DSE2027 Task Line//ZH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:DSE 2027 升学任务线
+X-WR-TIMEZONE:Asia/Hong_Kong
+BEGIN:VEVENT
+UID:jupas-apply@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART:20261202T080000Z
+DTEND:20261202T090000Z
+SUMMARY:JUPAS 正常申请截止 (17:00)
+DESCRIPTION:10月7日 09:00 – 12月2日 17:00（香港时间，已确认
+ ）\n\n小贴士：在 JUPAS 网站开账户、填资料、缴 HK$500 申
+ 请费。这段时间内改课程选择（志愿）免费，可以先填
+ 上，之后慢慢调。身份证明文件、特殊需要（残疾）资
+ 料也要在 12月2日 17:00 前交。\n\n官方来源：\nJUPAS 申请期
+ 及费用 https://www.jupas.edu.hk/en/application-procedures/application-o
+ ther-submission-deadline/application-period-and-fee
+URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
+ bmission-deadline/application-period-and-fee
+CATEGORIES:报名
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：JUPAS 正常申请截止 (17:00)
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：JUPAS 正常申请截止 (17:00)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：JUPAS 正常申请截止 (17:00)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dse-late@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261205
+SUMMARY:HKDSE 迟报名 / 更改报考科目（暂定）
+DESCRIPTION:11月16日 – 12月4日；附加费 12月8日前缴交（香
+ 港时间，暂定）\n\n小贴士：想加科、退某一科或改科目
+ ，就在这段时间通过学校办理，会收额外费用。确定不
+ 改就不用理。\n\n官方来源：\nHKEAA 考试时间表 https://www.h
+ keaa.edu.hk/en/hkdse/event_timetable/
+URL:https://www.hkeaa.edu.hk/en/hkdse/event_timetable/
+CATEGORIES:报名
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：HKDSE 迟报名 / 更改报考科目（暂定
+ ）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：HKDSE 迟报名 / 更改报考科目（暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：HKDSE 迟报名 / 更改报考科目（暂定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dse-withdraw@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:学校考生退考截止
+DESCRIPTION:11月30日（香港时间，已确认）\n\n小贴士：如果
+ 决定不考某科，要在这天之前通过学校退考。\n\n官方来
+ 源：\nHKEAA 考试时间表 https://www.hkeaa.edu.hk/en/hkdse/event_time
+ table/
+URL:https://www.hkeaa.edu.hk/en/hkdse/event_timetable/
+CATEGORIES:报名
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：学校考生退考截止
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：学校考生退考截止
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：学校考生退考截止
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:srr@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART:20270317T080000Z
+DTEND:20270317T090000Z
+SUMMARY:检查 JUPAS：学校推荐书 SRR 已提交？
+DESCRIPTION:1月20日 09:00 – 3月17日 17:00（香港时间，已确认
+ ）\n\n小贴士：这份由学校提交，你不用自己写。但记得
+ 在 3月17日 前登入 JUPAS 看一眼状态，确认学校已经交了
+ 。\n\n官方来源：\nJUPAS SRR 说明 https://www.jupas.edu.hk/en/appli
+ cation-procedures/supporting-documents-submission/school-reference-report-
+ reference-report
+URL:https://www.jupas.edu.hk/en/application-procedures/supporting-documents
+ -submission/school-reference-report-reference-report
+CATEGORIES:提交材料
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：检查 JUPAS：学校推荐书 SRR 已提交？
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：检查 JUPAS：学校推荐书 SRR 已提交？
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：检查 JUPAS：学校推荐书 SRR 已提交？
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:jupas-oea@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART:20270120T083000Z
+DTEND:20270120T090000Z
+SUMMARY:JUPAS 其他经验及成就（OEA）提交截止
+DESCRIPTION:1月20日 17:00（香港时间，已确认）\n\n小贴士：
+ 在 JUPAS 填你的课外活动、比赛、服务、奖项等。挑最能
+ 代表你的写，写清楚角色和成果。\n\n官方来源：\nJUPAS 
+ 重要日期 https://www.jupas.edu.hk/en/application-procedures/applicatio
+ n-other-submission-deadline/application-key-dates-and-deadlines
+URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
+ bmission-deadline/application-key-dates-and-deadlines
+CATEGORIES:提交材料
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：JUPAS 其他经验及成就（OEA）提交截
+ 止
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：JUPAS 其他经验及成就（OEA）提交截止
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：JUPAS 其他经验及成就（OEA）提交截止
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:speaking@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270309
+DTEND;VALUE=DATE:20270319
+SUMMARY:英文科说话考试（暂定）
+DESCRIPTION:3月9日 – 18日（特别考场 3月20日）（香港时间
+ ，暂定）\n\n小贴士：每人只考一节，你的具体日期和时
+ 间以准考证为准。多做小组讨论练习，开口说就是进步
+ 。\n\n官方来源：\nHKEAA 考试时间表 https://www.hkeaa.edu.hk/en/
+ hkdse/event_timetable/
+URL:https://www.hkeaa.edu.hk/en/hkdse/event_timetable/
+CATEGORIES:考试
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：英文科说话考试（暂定）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：英文科说话考试（暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：英文科说话考试（暂定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dse-start@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270504
+SUMMARY:HKDSE 笔试开始（暂定）
+DESCRIPTION:4月6日 – 5月3日（5月4日为后备日）（香港时间
+ ，暂定）\n\n小贴士：正式开考。按准考证和时间表查自
+ 己每一科的日子，前一晚准备好准考证、身份证和文具
+ ，早点睡。\n\n官方来源：\n2027 DSE 时间表（PDF） https://ww
+ w.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf
+URL:https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timet
+ able.pdf
+CATEGORIES:考试
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：HKDSE 笔试开始（暂定）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：HKDSE 笔试开始（暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：HKDSE 笔试开始（暂定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:chi@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270408
+DTEND;VALUE=DATE:20270409
+SUMMARY:中国语文 卷一、卷二（暂定）
+DESCRIPTION:4月8日（四）上午（香港时间，暂定）\n\n小贴士
+ ：核心科目第一场。时间表写明在上午（AM）进行，确切
+ 开考时间看准考证。\n\n官方来源：\n2027 DSE 时间表（PDF
+ ） https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Time
+ table.pdf
+URL:https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timet
+ able.pdf
+CATEGORIES:考试
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：中国语文 卷一、卷二（暂定）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：中国语文 卷一、卷二（暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：中国语文 卷一、卷二（暂定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:eng12@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270409
+DTEND;VALUE=DATE:20270410
+SUMMARY:英国语文 卷一、卷二（暂定）
+DESCRIPTION:4月9日（五）上午（香港时间，暂定）\n\n小贴士
+ ：阅读和写作。确切开考时间看准考证。\n\n官方来源：\
+ n2027 DSE 时间表（PDF） https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exa
+ m_Timetable/2027_DSE_Timetable.pdf
+URL:https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timet
+ able.pdf
+CATEGORIES:考试
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：英国语文 卷一、卷二（暂定）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：英国语文 卷一、卷二（暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：英国语文 卷一、卷二（暂定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:eng3@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:英国语文 卷三（聆听及综合能力）（暂定）
+DESCRIPTION:4月10日（六）上午（香港时间，暂定）\n\n小贴
+ 士：记得测试耳机 / 收音机安排，按准考证的考场要求
+ 准备。\n\n官方来源：\n2027 DSE 时间表（PDF） https://www.hkea
+ a.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf
+URL:https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timet
+ able.pdf
+CATEGORIES:考试
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：英国语文 卷三（聆听及综合能力）
+ （暂定）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：英国语文 卷三（聆听及综合能力）
+ （暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：英国语文 卷三（聆听及综合能力）（暂
+ 定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:math@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270413
+SUMMARY:数学必修部分 卷一、卷二（暂定）
+DESCRIPTION:4月12日（一）上午（香港时间，暂定）\n\n小贴
+ 士：带好考评局认可的计算机和备用电池。\n\n官方来源
+ ：\n2027 DSE 时间表（PDF） https://www.hkeaa.edu.hk/DocLibrary/HKDSE
+ /Exam_Timetable/2027_DSE_Timetable.pdf
+URL:https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timet
+ able.pdf
+CATEGORIES:考试
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：数学必修部分 卷一、卷二（暂定）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：数学必修部分 卷一、卷二（暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：数学必修部分 卷一、卷二（暂定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:csd@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270414
+SUMMARY:公民与社会发展（暂定）
+DESCRIPTION:4月13日（二）上午（香港时间，暂定）\n\n小贴
+ 士：核心科目最后一场，之后就是你的选修科了。\n\n官
+ 方来源：\n2027 DSE 时间表（PDF） https://www.hkeaa.edu.hk/DocLibr
+ ary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf
+URL:https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timet
+ able.pdf
+CATEGORIES:考试
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：公民与社会发展（暂定）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：公民与社会发展（暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：公民与社会发展（暂定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:acl@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART:20270421T083000Z
+DTEND:20270421T090000Z
+SUMMARY:应用学习 / 音乐资历 / 其他语言 / 过往学历 提交截
+ 止
+DESCRIPTION:4月21日 17:00（如适用）（香港时间，已确认）\n\
+ n小贴士：只在你有这些成绩或资历时才需要提交。没有
+ 的话不用做任何事。\n\n官方来源：\nJUPAS 重要日期（PDF
+ ） https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissions%20Exerci
+ se%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines.pdf
+URL:https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissions%20Exercis
+ e%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines.pdf
+CATEGORIES:提交材料
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：应用学习 / 音乐资历 / 其他语言 / 
+ 过往学历 提交截止
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：应用学习 / 音乐资历 / 其他语言 / 过
+ 往学历 提交截止
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：应用学习 / 音乐资历 / 其他语言 / 过往学
+ 历 提交截止
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:slp@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART:20270526T083000Z
+DTEND:20270526T090000Z
+SUMMARY:JUPAS 学生学习概览（SLP）提交截止 · 放榜前最后改
+ 志愿
+DESCRIPTION:5月26日 17:00（香港时间，已确认）\n\n小贴士：
+ 两件事同一天截止：SLP 上传，和放榜前最后一次修改课
+ 程选择。考完试休息几天后，就来把志愿排序再看一遍
+ 。\n\n官方来源：\nJUPAS 重要日期 https://www.jupas.edu.hk/en/app
+ lication-procedures/application-other-submission-deadline/application-key-
+ dates-and-deadlines
+URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
+ bmission-deadline/application-key-dates-and-deadlines
+CATEGORIES:提交材料
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：JUPAS 学生学习概览（SLP）提交截止 
+ · 放榜前最后改志愿
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：JUPAS 学生学习概览（SLP）提交截止 ·
+  放榜前最后改志愿
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：JUPAS 学生学习概览（SLP）提交截止 · 放
+ 榜前最后改志愿
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:confirm-year@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART:20270616T083000Z
+DTEND:20270616T090000Z
+SUMMARY:在 JUPAS 确认 HKDSE 应考年份（必须）
+DESCRIPTION:6月16日 17:00（香港时间，已确认）\n\n小贴士：
+ 必须做！登入 JUPAS 确认你考 DSE 的年份，否则大学拿不
+ 到你的成绩。两分钟就搞定。\n\n官方来源：\nJUPAS 重要
+ 日期 https://www.jupas.edu.hk/en/application-procedures/application-othe
+ r-submission-deadline/application-key-dates-and-deadlines
+URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
+ bmission-deadline/application-key-dates-and-deadlines
+CATEGORIES:提交材料
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：在 JUPAS 确认 HKDSE 应考年份（必须）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：在 JUPAS 确认 HKDSE 应考年份（必须）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：在 JUPAS 确认 HKDSE 应考年份（必须）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:results@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270714
+DTEND;VALUE=DATE:20270715
+SUMMARY:HKDSE 放榜（暂定）
+DESCRIPTION:7月14日（香港时间，暂定）\n\n小贴士：无论成
+ 绩怎样，你已经很棒了。拿到成绩后，接下来两天是免
+ 费调整志愿的机会。\n\n官方来源：\n考评局通告 No.8（PDF
+ ） https://www.hkeaa.edu.hk/DocLibrary/Circulars/HKDSE/HKDSE_Exam_Circula
+ r_No8_2027_Examination_Timetable_and_Date_of_Release_of_Results_E.pdf
+URL:https://www.hkeaa.edu.hk/DocLibrary/Circulars/HKDSE/HKDSE_Exam_Circular
+ _No8_2027_Examination_Timetable_and_Date_of_Release_of_Results_E.pdf
+CATEGORIES:放榜
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：HKDSE 放榜（暂定）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：HKDSE 放榜（暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：HKDSE 放榜（暂定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:post-modify@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART:20270716T060000Z
+DTEND:20270716T070000Z
+SUMMARY:JUPAS 放榜后免费改志愿截止 (15:00)
+DESCRIPTION:7月14日 15:00 – 7月16日 15:00（香港时间，已确认
+ ）\n\n小贴士：按真实成绩调整志愿，免费一次，最多新
+ 增或替换 5 个课程。之后若再改，要付 HK$250 重新提交一
+ 次。和老师、家人商量后再按提交。\n\n官方来源：\nJUPAS
+  修改课程选择 https://www.jupas.edu.hk/en/application-procedures/app
+ lication-other-submission-deadline/selection-updating-and-modification-of-
+ programme-choices
+URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
+ bmission-deadline/selection-updating-and-modification-of-programme-choices
+CATEGORIES:选科
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：JUPAS 放榜后免费改志愿截止 (15:00)
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：JUPAS 放榜后免费改志愿截止 (15:00)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：JUPAS 放榜后免费改志愿截止 (15:00)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:main-offer@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART:20270804T010000Z
+DTEND:20270804T020000Z
+SUMMARY:JUPAS 主轮放榜（09:00）· 8月5日17:00前缴留位费
+DESCRIPTION:8月4日 09:00；接受学位 8月5日 17:00 前缴费（香港
+ 时间，已确认）\n\n小贴士：09:00 登入 JUPAS 看结果。决定
+ 接受的话，要在 8月5日 17:00 前缴 HK$5\,000 留位费，过时
+ 会失去学位。\n\n官方来源：\nJUPAS 主轮放榜 https://www.jupa
+ s.edu.hk/en/application-procedures/post-hkdse-exam-results-announcement/ma
+ in-round-offer
+URL:https://www.jupas.edu.hk/en/application-procedures/post-hkdse-exam-resu
+ lts-announcement/main-round-offer
+CATEGORIES:放榜
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：JUPAS 主轮放榜（09:00）· 8月5日17:00
+ 前缴留位费
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：JUPAS 主轮放榜（09:00）· 8月5日17:00前
+ 缴留位费
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：JUPAS 主轮放榜（09:00）· 8月5日17:00前缴留
+ 位费
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:recheck@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270812
+DTEND;VALUE=DATE:20270813
+SUMMARY:复核成绩后申请重新考虑
+DESCRIPTION:8月12日（香港时间，已确认）\n\n小贴士：如果
+ 你申请了复核并改了分，在这天前通过 JUPAS 申请大学重
+ 新考虑。\n\n官方来源：\nJUPAS 重要日期 https://www.jupas.edu.
+ hk/en/application-procedures/application-other-submission-deadline/applica
+ tion-key-dates-and-deadlines
+URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
+ bmission-deadline/application-key-dates-and-deadlines
+CATEGORIES:放榜
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：复核成绩后申请重新考虑
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：复核成绩后申请重新考虑
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：复核成绩后申请重新考虑
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:recheck-result@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270819
+DTEND;VALUE=DATE:20270820
+SUMMARY:复核后录取结果公布
+DESCRIPTION:8月19日（香港时间，已确认）\n\n小贴士：只适
+ 用于申请了重新考虑的同学。\n\n官方来源：\nJUPAS 重要
+ 日期 https://www.jupas.edu.hk/en/application-procedures/application-othe
+ r-submission-deadline/application-key-dates-and-deadlines
+URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
+ bmission-deadline/application-key-dates-and-deadlines
+CATEGORIES:放榜
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：复核后录取结果公布
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：复核后录取结果公布
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：复核后录取结果公布
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:clearing@dse2027.local
+DTSTAMP:20261018T070648Z
+DTSTART;VALUE=DATE:20270824
+DTEND;VALUE=DATE:20270825
+SUMMARY:补选（Clearing Round）结果及接受截止（暂定）
+DESCRIPTION:8月24日（可能更改）（香港时间，暂定）\n\n小
+ 贴士：主轮没拿到心仪学位的同学还有机会。留意 JUPAS 
+ 通知。\n\n官方来源：\nJUPAS 重要日期 https://www.jupas.edu.hk/
+ en/application-procedures/application-other-submission-deadline/applicatio
+ n-key-dates-and-deadlines
+URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
+ bmission-deadline/application-key-dates-and-deadlines
+CATEGORIES:放榜
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：补选（Clearing Round）结果及接受截止
+ （暂定）
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：补选（Clearing Round）结果及接受截止
+ （暂定）
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：补选（Clearing Round）结果及接受截止（暂
+ 定）
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
