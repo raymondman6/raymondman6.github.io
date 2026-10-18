@@ -633,7 +633,7 @@ const bar=document.getElementById('bar');new IntersectionObserver(([en])=>bar.cl
       ?'<span class="tag s-ok">已回复</span>'
       :'<span class="tag s-wait">待回复</span>';
     const samp=sample?'<span class="tag s-sample">示例</span>':'';
-    const answers=`<div class="qa-answers">${ansBlock('senior','学长学姐',it.answer,'等待回复')}${ansBlock('gpt','ChatGPT',it.answerGpt,'等待 ChatGPT 回复')}</div>`;
+    const answers=`<div class="qa-answers">${ansBlock('senior','Grok Bot',it.answer,'等待回复')}${ansBlock('gpt','ChatGPT',it.answerGpt,'等待 ChatGPT 回复')}</div>`;
     return `<li class="qa-card${sample?' sample':''}">
       <div class="card-top"><span class="qdate">${fmtDate(it.askedAt)}</span>${badge}${samp}</div>
       <p class="qa-q">${esc(it.question)}</p>
