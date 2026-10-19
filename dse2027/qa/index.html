@@ -4,318 +4,154 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#eef2ef" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121816" media="(prefers-color-scheme: dark)">
 <title>升学问答 · DSE 2027</title>
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161A21" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="../fonts/noto-sans-sc.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/pixelify-sans.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:'S';src:url('../fonts/noto-sans-sc.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:block}
+@font-face{font-family:'Cond';src:url('../fonts/barlow-condensed-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:'Cond';src:url('../fonts/barlow-condensed-700.woff2') format('woff2');font-weight:700 900;font-style:normal;font-display:block}
+@font-face{font-family:'Pix';src:url('../fonts/pixelify-sans.woff2') format('woff2');font-weight:400 700;font-style:normal;font-display:block}
+
 :root{
-  --bg:#eef2ef; --paper:#fbfcfa; --ink:#1d2a27; --ink2:#51605b; --mute:#93a09b;
-  --line:#d5ddd8; --sage:#4f7f6f; --sage-soft:#dfeae4; --apricot:#e9a24f; --apricot-soft:#fbecd8;
-  --rose:#c4636f; --rose-soft:#f6e1e3; --sky:#5b7fa6; --sky-soft:#e1e9f2;
-  --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","Noto Serif CJK SC",serif;
-  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans SC","Source Han Sans SC","Noto Sans CJK SC","Microsoft YaHei",system-ui,sans-serif;
-  --r-lg:22px; --r-md:14px; --r-sm:999px;
-  --shadow:0 1px 0 rgba(29,42,39,.04),0 12px 28px -18px rgba(29,42,39,.28);
+  --bg:#FFFFFF; --tile:#F1F3F5; --ink:#1B1F24; --mute:#5C636B; --hair:#DADEE2;
+  --line:#2F3EA8; --line-soft:#E6E8F6; --qa:#FFC72C; --qa-ink:#1B1F24; --you:#FFF4D1;
+  --sans:'S','PingFang SC','Noto Sans CJK SC',sans-serif; --cond:'Cond','Barlow Condensed','Arial Narrow',sans-serif;
 }
-@media (prefers-color-scheme:dark){:root{
-  --bg:#121816; --paper:#1a2220; --ink:#e7eeea; --ink2:#a9b7b1; --mute:#82908b;
-  --line:#2c3834; --sage:#8cc0ad; --sage-soft:#22332d; --apricot:#f0b46a; --apricot-soft:#3a2d1c;
-  --rose:#e48d97; --rose-soft:#3a2428; --sky:#93b4d8; --sky-soft:#1f2b38;
-  --shadow:0 1px 0 rgba(0,0,0,.2),0 14px 30px -20px rgba(0,0,0,.7);
-}}
-*{box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root{--bg:#161A21;--tile:#1F242D;--ink:#ECEFF3;--mute:#A0A8B3;--hair:#323944;--line:#8C98FF;--line-soft:#262C48;--you:#3A3218}}
+*{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--sans);letter-spacing:.01em;
-  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
-a{color:var(--sage);text-underline-offset:3px;text-decoration-thickness:1px}
-:focus-visible{outline:2px solid var(--apricot);outline-offset:3px;border-radius:8px}
-.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+/* phone layout guards: no sideways scroll, long text wraps */
+html,body{overflow-x:clip;max-width:100%}
+section,header,footer,main,.board,.row>div,.txt,.node,.head,.month,.earlier,.pp,.facts div,.conv,.msg{min-width:0}
+.name,.s,.t,.meta,.node .body p,.earlier li,.pp-intro,.facts dt,.sites a,.qa-entry .txt,footer,.sub,.hero p{overflow-wrap:anywhere}
 
-.back{display:inline-flex;align-items:center;gap:6px;margin:22px 0 28px;font-size:14px;font-weight:600;color:var(--ink2);text-decoration:none}
-.back:hover{color:var(--sage)}
-.back svg{width:16px;height:16px;flex:none}
-
-header.hero{padding:0 0 8px}
-.kicker{font-size:14px;color:var(--ink2);margin:0 0 8px}
-h1{font-family:var(--serif);font-weight:700;font-size:clamp(36px,9vw,52px);line-height:1.15;margin:0;letter-spacing:.02em}
-h1 small{display:block;font-size:.38em;font-weight:500;color:var(--ink2);letter-spacing:.04em;margin-top:10px;font-family:var(--sans)}
-.lede{margin:18px 0 0;color:var(--ink2);font-size:15.5px;line-height:1.75;max-width:36em}
-
-.btn{white-space:nowrap;border:0;border-radius:var(--r-sm);padding:12px 20px;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:transform .15s;text-decoration:none}
-.btn:active{transform:scale(.97)}
-.btn.primary{background:var(--sage);color:var(--paper)}
-.btn svg{width:18px;height:18px}
-
-.qa-cta{margin:28px 0 40px}
-.qa-cta .cta-note{margin:12px 0 0;font-size:13px;color:var(--mute)}
-
-.qa-hist>h2{font-family:var(--serif);font-size:24px;margin:0 0 6px;font-weight:700}
-.qa-hist .hist-sub{margin:0 0 18px;color:var(--ink2);font-size:14.5px}
-.qa-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.qa-card{background:var(--paper);border-radius:var(--r-md);box-shadow:var(--shadow);padding:18px 18px 16px;position:relative}
-.qa-card.sample{box-shadow:inset 3px 0 0 var(--sky),var(--shadow)}
-.qa-card .card-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:10px}
-.qa-card .qdate{font-size:13px;color:var(--ink2);font-variant-numeric:tabular-nums}
-.tag{border-radius:6px;padding:1px 8px;font-weight:600;font-size:12.5px}
-.s-ok{background:var(--sage-soft);color:var(--sage)}
-.s-wait{background:var(--apricot-soft);color:color-mix(in srgb,var(--apricot) 70%,var(--ink))}
-.s-sample{background:var(--sky-soft);color:var(--sky)}
-.qa-q{font-size:16.5px;font-weight:600;line-height:1.55;margin:0;color:var(--ink)}
-.qa-q::before{content:"问";display:inline-block;font-size:11.5px;font-weight:700;color:var(--sage);background:var(--sage-soft);border-radius:5px;padding:0 6px;margin-right:8px;vertical-align:2px;letter-spacing:.04em}
-.qa-answers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
-@media (max-width:560px){.qa-answers{grid-template-columns:1fr;gap:18px;margin-top:16px}.qa-card{padding:18px 16px 16px}}
-.qa-a{margin:0;padding:16px 16px 15px;border-radius:12px;background:color-mix(in srgb,var(--sage-soft) 70%,var(--paper));font-size:16px;line-height:1.8;color:var(--ink);min-width:0}
-.qa-a.gpt{background:color-mix(in srgb,var(--sky-soft) 75%,var(--paper))}
-.qa-a .a-label{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;border-radius:5px;padding:1px 7px;margin:0 0 10px;line-height:1.4}
-.qa-a.senior .a-label{color:var(--paper);background:var(--sage)}
-.qa-a.gpt .a-label{color:var(--paper);background:var(--sky)}
-.qa-a .a-body{margin:0;font-size:16px;line-height:1.8;overflow-wrap:anywhere}
-.qa-a .a-body p{margin:0 0 .72em}
-.qa-a .a-body p:last-child{margin-bottom:0}
-.qa-a .a-list{margin:.2em 0 .9em;padding:0 0 0 1.35em;display:flex;flex-direction:column;gap:.72em}
-.qa-a .a-list:last-child{margin-bottom:0}
-.qa-a .a-list li{padding-left:.2em}
-.qa-a.senior .a-list li::marker{color:var(--sage);font-weight:700}
-.qa-a.gpt .a-list li::marker{color:var(--sky);font-weight:700}
-.qa-a .a-body a{overflow-wrap:anywhere;word-break:break-word;text-underline-offset:.22em;text-decoration-thickness:1px}
-.qa-a.gpt .a-body a{color:var(--sky)}
-.qa-a.is-clamped:not(.is-open) .a-body{
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;
-  line-clamp:4;max-height:calc(1.8em * 4);overflow:hidden;
-}
-.a-more{
-  appearance:none;width:100%;margin:12px 0 0;min-height:40px;padding:8px 14px;
-  border:1px solid color-mix(in srgb,var(--sage) 32%,var(--line));
-  background:color-mix(in srgb,var(--paper) 78%,var(--sage-soft));
-  color:var(--sage);font:inherit;font-size:13.5px;font-weight:650;letter-spacing:.04em;
-  border-radius:var(--r-sm);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;
-}
-.qa-a.gpt .a-more{
-  border-color:color-mix(in srgb,var(--sky) 34%,var(--line));
-  background:color-mix(in srgb,var(--paper) 78%,var(--sky-soft));
-  color:var(--sky);
-}
-.a-more::after{
-  content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
-  transform:translateY(-1px) rotate(45deg);
-}
-.qa-a.is-open .a-more::after{transform:translateY(1px) rotate(225deg)}
-.a-more:hover{background:var(--paper)}
-.qa-a.is-open .a-more{background:var(--paper);box-shadow:var(--shadow)}
-.qa-a.empty{background:transparent;padding:10px 0 0;color:var(--mute);font-size:14.5px}
-.qa-a.empty .a-body{font-size:14.5px;line-height:1.65}
-.qa-a.empty .a-label{opacity:.85}
-.qa-a.empty.senior{background:transparent}
-.qa-a.empty.gpt{background:transparent}
-.qa-empty{text-align:center;padding:36px 20px;color:var(--ink2);background:var(--paper);border-radius:var(--r-lg);box-shadow:var(--shadow)}
-.qa-empty .ico{font-family:var(--serif);font-size:36px;color:var(--sage);margin-bottom:8px;line-height:1}
-.qa-empty p{margin:0;font-size:15px;line-height:1.7}
-.qa-empty p+p{margin-top:6px;font-size:13.5px;color:var(--mute)}
-.qa-err{margin:0 0 14px;padding:16px 18px;border-radius:var(--r-md);background:var(--apricot-soft);color:color-mix(in srgb,var(--apricot) 55%,var(--ink));font-size:14.5px;line-height:1.65}
-
-footer{color:var(--mute);font-size:13px;padding:48px 0 56px;text-align:center;line-height:1.7}
-footer .upd{margin-top:10px;display:block}
+:focus-visible{outline:3px solid var(--line);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 0;font-size:14px;font-weight:700}
+.top a{text-decoration:none;color:var(--line)}
+.top span{color:var(--mute);font-weight:400;font-size:13px}
+.hero{margin:14px 12px 0;background:var(--qa);color:var(--qa-ink);border-radius:20px;padding:16px 18px 18px}
+.hero .hd{display:flex;align-items:center;gap:12px}
+.hero .ico{width:46px;height:46px;border-radius:13px;background:var(--qa-ink);display:grid;place-items:center;flex:none}
+.hero h1{font-size:28px;font-weight:900;line-height:1.2}
+.hero p{font-size:14px;margin-top:10px;line-height:1.6}
+.hero .go{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:var(--qa-ink);color:var(--qa);text-decoration:none;font-weight:900;padding:10px 18px;border-radius:12px;font-size:15px}
+.hero small{display:block;font-size:12px;margin-top:8px}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;margin:16px 20px 0;font-size:12.5px;color:var(--mute)}
+.key span{display:inline-flex;align-items:center;gap:6px}
+main{padding:22px 20px 40px}
+.lh{display:flex;justify-content:space-between;align-items:baseline}
+.lh h2{font-size:19px;font-weight:900}
+.lh span{font-size:12.5px;color:var(--mute)}
+/* conversation (你 / Grok Bot / ChatGPT) */
+.conv{margin-top:12px;border:1.5px solid var(--hair);border-radius:18px;padding:14px 14px 4px;min-width:0;max-width:100%}
+.ts{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12.5px;color:var(--mute)}
+.ts b{font-weight:900;font-size:12px;background:var(--qa);color:var(--qa-ink);border-radius:4px;padding:0 6px;white-space:nowrap}
+.msg{padding:14px 0;min-width:0}
+.mh{display:flex;align-items:center;gap:10px}
+.msg+.msg{border-top:1px solid var(--hair)}
+.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:none}
+.av.you{background:var(--qa)}
+.av.g{background:var(--line)}
+.av.c{background:var(--ink)}
+.who{display:flex;align-items:baseline;gap:8px;font-size:14.5px;font-weight:900;line-height:30px}
+.who small{font-size:12px;font-weight:400;color:var(--mute)}
+.you-q{background:var(--you);border-radius:4px 14px 14px 14px;padding:10px 12px;margin-top:8px;font-size:17px;font-weight:900;line-height:1.55;overflow-wrap:anywhere}
+.abody{margin-top:6px;font-size:15px;line-height:1.75;overflow-wrap:anywhere;word-break:break-word;min-width:0}
+.abody p.h{font-weight:900}
+.open .abody p.h{margin-top:.7em}
+.open .abody p.li{margin-top:.25em}
+.abody a{color:var(--line);text-underline-offset:3px;overflow-wrap:anywhere}
+.ans:not(.open):not(.short):not(.empty) .abody{max-height:calc(4 * 1.75em);overflow:hidden;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+.ans.empty .abody{color:var(--mute);font-size:14px}
+.ans.short .x{display:none}
+.x{display:inline-flex;align-items:center;gap:6px;margin-top:8px;min-height:36px;font-size:13.5px;font-weight:700;padding:5px 12px;border:1.5px solid var(--hair);border-radius:14px}
+.x::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-1px,-1px)}
+.open .x::after{transform:rotate(-135deg) translate(-1px,-1px)}
+.qa-empty,.qa-err{margin-top:12px;padding:14px;border-radius:14px;background:var(--tile);font-size:14px;color:var(--mute)}
+.qa-err a{color:var(--line);font-weight:700}
+.fine{font-size:12.5px;color:var(--mute);margin-top:24px;padding-top:12px;border-top:1px solid var(--hair);line-height:1.7}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <a class="back" href="../">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-    返回升学任务线
-  </a>
-
-  <header class="hero">
-    <p class="kicker">给 Form 6 的你 · 有疑问随时问</p>
-    <h1>升学问答<small>Admissions &amp; exam Q&amp;A</small></h1>
-    <p class="lede">升学、考试、志愿填报有不清楚的地方，写下来就好。顾问会尽快回复；问答记录会出现在下方，方便你之后回来看。</p>
-  </header>
-
-  <div class="qa-cta">
-    <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdCFAmWVLheIMIOaYdtSFhTlYpbgGW8ORLkuYVIRZX1puULGg/viewform" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
-      写下问题
-    </a>
-    <p class="cta-note">会打开 Google 表单，填好提交即可。不用登录。</p>
-  </div>
-
-  <div class="qa-hist">
-    <h2>问答记录</h2>
-    <p class="hist-sub">按提问时间从新到旧排列。</p>
-    <div id="qa-status" hidden></div>
-    <ul class="qa-list" id="qa-list" aria-live="polite"></ul>
-  </div>
-
-  <footer>
-    回答分别来自 Grok Bot 与 ChatGPT，仅供参考；请以考评局与 JUPAS 最新公布为准。
-    <span class="upd">最后更新：<span id="qa-upd">—</span>（香港时间）</span>
-  </footer>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-you" viewBox="0 0 20 20"><circle cx="10" cy="7" r="3.4" fill="#1B1F24"/><path d="M3.8 17.2c.6-3.4 3-5.2 6.2-5.2s5.6 1.8 6.2 5.2z" fill="#1B1F24"/></symbol>
+  <symbol id="i-g" viewBox="0 0 20 20"><path d="M10 2.5c.7 4.3 3.2 6.8 7.5 7.5-4.3.7-6.8 3.2-7.5 7.5-.7-4.3-3.2-6.8-7.5-7.5 4.3-.7 6.8-3.2 7.5-7.5z" fill="#fff"/></symbol>
+  <symbol id="i-c" viewBox="0 0 20 20"><path d="M10 3.2l5.9 3.4v6.8L10 16.8l-5.9-3.4V6.6z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><circle cx="10" cy="10" r="1.8" fill="#fff"/></symbol>
+</svg>
+<header class="top"><a href="../">‹ 返回升学路线</a><span>DSE 2027</span></header>
+<div class="hero">
+  <div class="hd"><span class="ico"><svg width="26" height="26" viewBox="0 0 28 28" aria-hidden="true"><path d="M5 6.5C5 5.1 6.1 4 7.5 4h13C21.9 4 23 5.1 23 6.5v10c0 1.4-1.1 2.5-2.5 2.5H13l-5 4.5V19H7.5C6.1 19 5 17.9 5 16.5z" fill="#FFC72C"/><path d="M11.6 9.6c.3-1.3 1.3-2 2.6-2 1.5 0 2.6.9 2.6 2.2 0 1.9-2.6 1.9-2.6 3.6" fill="none" stroke="#1B1F24" stroke-width="2" stroke-linecap="round"/><circle cx="14.2" cy="15.8" r="1.25" fill="#1B1F24"/></svg></span><h1>升学问答</h1></div>
+  <p>升学、考试、志愿填报有不清楚的地方，写下来就好。每个问题都有 Grok Bot 和 ChatGPT 两份回复，可以对照着看。</p>
+  <a class="go" data-form href="#" target="_blank" rel="noopener">写下问题</a>
+  <small>会打开 Google 表单，填好提交即可，不用登录。</small>
 </div>
-
+<div class="key" aria-label="图示">
+  <span><span class="av you" style="width:20px;height:20px"><svg width="13" height="13"><use href="#i-you"/></svg></span>你的问题</span>
+  <span><span class="av g" style="width:20px;height:20px"><svg width="13" height="13"><use href="#i-g"/></svg></span>Grok Bot</span>
+  <span><span class="av c" style="width:20px;height:20px"><svg width="13" height="13"><use href="#i-c"/></svg></span>ChatGPT</span>
+</div>
+<main>
+  <div class="lh"><h2>问答记录</h2><span>从新到旧</span></div>
+  <div id="qa-list" aria-live="polite"></div>
+  <p class="fine">回答分别来自 Grok Bot 与 ChatGPT，仅供参考；请以考评局与 JUPAS 最新公布为准。问答最后更新：<span id="upd">—</span>（香港时间）</p>
+</main>
 <script>
-(function(){
-  const FORM='https://docs.google.com/forms/d/e/1FAIpQLSdCFAmWVLheIMIOaYdtSFhTlYpbgGW8ORLkuYVIRZX1puULGg/viewform';
-  function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-  function fmtDate(iso){
-    if(!iso)return '';
-    const d=new Date(iso);
-    if(Number.isNaN(d.getTime()))return esc(String(iso).slice(0,10));
-    const parts=new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Hong_Kong',year:'numeric',month:'numeric',day:'numeric',weekday:'short'}).formatToParts(d);
-    const g=t=>parts.find(p=>p.type===t)?.value||'';
-    return `${g('year')}年${g('month')}月${g('day')}日 · 周${(g('weekday')||'').replace('周','')}`;
-  }
-  function linkify(escaped){
-    return escaped.replace(/https?:\/\/[^\s<]+/g,raw=>{
-      let url=raw,trail='';
-      while(url&&/[.,;:!?。，、；：\]】」』>]$/.test(url)){trail=url.slice(-1)+trail;url=url.slice(0,-1)}
-      while(url&&/[)）]/.test(url.slice(-1))){
-        const opens=(url.match(/\(/g)||[]).length+(url.match(/（/g)||[]).length;
-        const closes=(url.match(/\)/g)||[]).length+(url.match(/）/g)||[]).length;
-        if(closes<=opens)break;
-        trail=url.slice(-1)+trail;url=url.slice(0,-1);
-      }
-      if(!/^https?:\/\//.test(url))return raw;
-      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>${trail}`;
-    });
-  }
-  function formatInline(s){return linkify(esc(s))}
-  function numbered(line){
-    const m=String(line).match(/^\s*(\d+)\s*[）).、.]\s*([\s\S]*)$/);
-    return m?{n:Number(m[1]),rest:m[2]}:null;
-  }
-  function renderChunk(chunk){
-    const lines=chunk.split('\n').map(l=>l.trim()).filter(Boolean);
-    const parts=[];let list=[];
-    function flush(){
-      if(!list.length)return;
-      const start=list[0].n;
-      parts.push(`<ol class="a-list"${start===1?'':' start="'+start+'"'}>${list.map(it=>`<li value="${it.n}">${formatInline(it.rest)}</li>`).join('')}</ol>`);
-      list=[];
-    }
-    lines.forEach(line=>{
-      const item=numbered(line);
-      if(item&&item.rest){list.push(item);return}
-      flush();
-      parts.push(`<p>${formatInline(line)}</p>`);
-    });
-    flush();
-    return parts.join('');
-  }
-  function renderAnswer(text){
-    const raw=String(text??'').replace(/\r\n/g,'\n').trim();
-    if(!raw)return '';
-    return raw.split(/\n{2,}/).map(renderChunk).join('');
-  }
-  function ansBlock(kind,label,text,emptyMsg){
-    const has=!!(text&&String(text).trim());
-    if(has){
-      return `<div class="qa-a ${kind}"><span class="a-label">${esc(label)}</span><div class="a-body">${renderAnswer(text)}</div></div>`;
-    }
-    return `<div class="qa-a ${kind} empty"><span class="a-label">${esc(label)}</span><div class="a-body">${esc(emptyMsg)}</div></div>`;
-  }
-  function card(it){
-    const hasSenior=!!(it.answer&&String(it.answer).trim());
-    const hasGpt=!!(it.answerGpt&&String(it.answerGpt).trim());
-    const answered=it.status==='answered'||hasSenior||hasGpt;
-    const sample=it.sample||it.id==='sample-1'||(it.question||'').includes('（示例）');
-    const badge=answered
-      ?'<span class="tag s-ok">已回复</span>'
-      :'<span class="tag s-wait">待回复</span>';
-    const samp=sample?'<span class="tag s-sample">示例</span>':'';
-    const answers=`<div class="qa-answers">${ansBlock('senior','Grok Bot',it.answer,'等待回复')}${ansBlock('gpt','ChatGPT',it.answerGpt,'等待 ChatGPT 回复')}</div>`;
-    return `<li class="qa-card${sample?' sample':''}">
-      <div class="card-top"><span class="qdate">${fmtDate(it.askedAt)}</span>${badge}${samp}</div>
-      <p class="qa-q">${esc(it.question)}</p>
-      ${answers}
-    </li>`;
-  }
-  function emptyState(){
-    return `<li class="qa-empty">
-      <div class="ico">问</div>
-      <p>还没有问答记录。</p>
-      <p>你写下问题、我们回复之后，就会出现在这里。</p>
-    </li>`;
-  }
-  function showErr(msg){
-    const el=document.getElementById('qa-status');
-    el.hidden=false;
-    el.className='qa-err';
-    el.innerHTML=msg;
-  }
-  async function load(){
-    const list=document.getElementById('qa-list');
-    try{
-      const res=await fetch('./qa-data.json',{cache:'no-store'});
-      if(!res.ok)throw new Error('HTTP '+res.status);
-      const data=await res.json();
-      document.getElementById('qa-upd').textContent=data.updated||'—';
-      const items=Array.isArray(data.items)?[...data.items]:[];
-      items.sort((a,b)=>String(b.askedAt||'').localeCompare(String(a.askedAt||'')));
-      if(!items.length){list.innerHTML=emptyState();return}
-      list.innerHTML=items.map(card).join('');
-      fitClamps();
-    }catch(e){
-      list.innerHTML='';
-      showErr('暂时无法载入问答记录。请从网站打开本页；本地直接打开文件时浏览器会拦截资料载入。<br><a href="'+FORM+'" target="_blank" rel="noopener">仍可先去写下问题 →</a>');
-      document.getElementById('qa-upd').textContent='—';
-    }
-  }
-  function paintMore(btn,open,label){
-    btn.setAttribute('aria-expanded',open?'true':'false');
-    btn.textContent=open?'收起':'展开全文';
-    btn.setAttribute('aria-label',(open?'收起':'展开全文')+'，'+label);
-  }
-  function bindMore(panel,label){
-    const body=panel.querySelector('.a-body');
-    if(!body.id) body.id='ab-'+Math.random().toString(36).slice(2,8);
-    const btn=document.createElement('button');
-    btn.type='button';
-    btn.className='a-more';
-    btn.setAttribute('aria-controls',body.id);
-    paintMore(btn,panel.classList.contains('is-open'),label);
-    btn.addEventListener('click',()=>{
-      const open=panel.classList.toggle('is-open');
-      paintMore(btn,open,label);
-    });
-    panel.appendChild(btn);
-    return btn;
-  }
-  function fitClamps(){
-    document.querySelectorAll('.qa-a:not(.empty)').forEach(panel=>{
-      const body=panel.querySelector('.a-body');
-      if(!body) return;
-      const open=panel.classList.contains('is-open');
-      panel.classList.remove('is-open');
-      panel.classList.add('is-clamped');
-      const clampedH=body.clientHeight;
-      panel.classList.remove('is-clamped');
-      const fullH=body.scrollHeight;
-      const needs=fullH>clampedH+2;
-      if(!needs){
-        const old=panel.querySelector('.a-more');
-        if(old) old.remove();
-        return;
-      }
-      panel.classList.add('is-clamped');
-      if(open) panel.classList.add('is-open');
-      const label=panel.querySelector('.a-label')?.textContent||'回答';
-      let btn=panel.querySelector('.a-more');
-      if(!btn) btn=bindMore(panel,label);
-      paintMore(btn,panel.classList.contains('is-open'),label);
-    });
-  }
-  let clampW=0;
-  const listEl=document.getElementById('qa-list');
-  if(window.ResizeObserver){
-    new ResizeObserver(()=>{
-      const w=listEl.clientWidth;
-      if(w===clampW) return;
-      clampW=w;
-      fitClamps();
-    }).observe(listEl);
-  }
-  load();
-})();
+/* shared Q&A helpers: real QA data, readable long answers, per-answer expand */
+let QA={updated:'',items:[]};
+/* Q&A data is read at runtime from the published qa-data.json (fields: id, askedAt, question, answer, answerGpt, status) */
+function loadQA(url){return fetch(url,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(d=>{
+  const items=Array.isArray(d&&d.items)?[...d.items]:[];
+  items.sort((a,b)=>String(b.askedAt||'').localeCompare(String(a.askedAt||'')));
+  QA={updated:(d&&d.updated)||'',items};return QA})}
+const hasText=t=>!!(t&&String(t).trim());
+const isAnswered=it=>it.status==='answered'||hasText(it.answer)||hasText(it.answerGpt);
+const qesc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function host(u){try{const x=new URL(u);return x.hostname.replace(/^(www|web)\./,'')+(x.pathname.length>1?'/…':'')}catch(e){return u}}
+function fmtAns(t){
+  return String(t).split(/\n+/).filter(l=>l.trim()).map(l=>{
+    const h=qesc(l).replace(/https?:\/\/[^\s）)，。]+/g,u=>`<a href="${u}" target="_blank" rel="noopener">${host(u.replace(/&amp;/g,'&'))}</a>`);
+    const head=/^[一二三四五六七八九十]、/.test(l);
+    const li=/^(\d+[\.、）)]|[-•]\s|\d+）)/.test(l.trim());
+    return `<p class="${head?'h':''}${li?' li':''}">${h}</p>`}).join('');
+}
+function fmtAsked(iso){if(!iso||isNaN(new Date(iso)))return qesc(String(iso||'').slice(0,10));const d=new Date(new Date(iso).getTime()+8*3600e3);return `${d.getUTCFullYear()}年${d.getUTCMonth()+1}月${d.getUTCDate()}日 周${'日一二三四五六'[d.getUTCDay()]} ${String(d.getUTCHours()).padStart(2,'0')}:${String(d.getUTCMinutes()).padStart(2,'0')}`}
+function bindExpand(root=document){
+  root.querySelectorAll('.ans').forEach(a=>{const b=a.querySelector('.x');if(!b)return;const lab=b.querySelector('.xl')||b;
+    b.setAttribute('aria-expanded','false');
+    b.onclick=()=>{const o=a.classList.toggle('open');lab.textContent=o?'收起':'展开全文';b.setAttribute('aria-expanded',o);
+      if(!o){const r=a.getBoundingClientRect();if(r.top<0)a.scrollIntoView({block:'start'})}};});
+}
+const FORM='https://docs.google.com/forms/d/e/1FAIpQLSdCFAmWVLheIMIOaYdtSFhTlYpbgGW8ORLkuYVIRZX1puULGg/viewform';
+document.querySelectorAll('a[data-form]').forEach(a=>a.href=FORM);
+
+/* one conversation card: 你 → Grok Bot → ChatGPT */
+const qic=id=>`<svg width="19" height="19" aria-hidden="true"><use href="#i-${id}"/></svg>`;
+function qaAns(k,who,t,empty,attr){return `<div class="msg ans${hasText(t)?'':' empty'}" ${attr||''}><div class="mh"><span class="av ${k}">${qic(k)}</span><p class="who">${who}<small>回复</small></p></div>
+  <div class="abody">${hasText(t)?fmtAns(t):`<p>${empty}</p>`}</div>${hasText(t)?'<button class="x" type="button"><span class="xl">展开全文</span></button>':''}</div>`}
+function convHTML(it){return `<article class="conv">
+  <p class="ts"><span>${fmtAsked(it.askedAt)}</span><b>${isAnswered(it)?'已回复':'待回复'}</b></p>
+  <div class="msg"><div class="mh"><span class="av you">${qic('you')}</span><p class="who">你<small>提问</small></p></div><p class="you-q">${qesc(it.question||'')}</p></div>
+  ${qaAns('g','Grok Bot',it.answer,'等待回复','data-ans="grok"')}${qaAns('c','ChatGPT',it.answerGpt,'等待 ChatGPT 回复','data-ans="gpt"')}
+</article>`}
+/* only answers longer than the ~4-line preview get the 展开全文 button */
+function fitAnswers(root=document){root.querySelectorAll('.ans').forEach(a=>{const b=a.querySelector('.abody'),x=a.querySelector('.x');if(!b||!x)return;
+  const open=a.classList.contains('open');a.classList.remove('open','short');const needs=b.scrollHeight>b.clientHeight+2;
+  if(open)a.classList.add('open');if(!needs){a.classList.add('short');a.classList.remove('open')}})}
+function renderQA(listEl,items,emptyMsg){
+  listEl.innerHTML=items.length?items.map(convHTML).join(''):`<p class="qa-empty">${emptyMsg}</p>`;
+  bindExpand(listEl);fitAnswers(listEl);
+  if(window.ResizeObserver){let w=0;new ResizeObserver(()=>{if(listEl.clientWidth!==w){w=listEl.clientWidth;fitAnswers(listEl)}}).observe(listEl)}}
+
+loadQA('./qa-data.json').then(Q=>{
+  document.getElementById('upd').textContent=Q.updated||'—';
+  renderQA(document.getElementById('qa-list'),Q.items,'还没有问答记录。你写下问题、我们回复之后，就会出现在这里。');
+}).catch(()=>{document.getElementById('qa-list').innerHTML='<p class="qa-err">暂时无法载入问答记录。请从网站打开本页；本地直接打开文件时浏览器会拦截资料载入。<br><a data-form href="'+FORM+'" target="_blank" rel="noopener">仍可先去写下问题 →</a></p>'});
 </script>
 </body>
 </html>
