@@ -381,19 +381,19 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:acl@dse2027.local
-DTSTAMP:20261020T073728Z
-SEQUENCE:1
+DTSTAMP:20261020T074313Z
+SEQUENCE:2
 DTSTART:20270421T083000Z
 DTEND:20270421T090000Z
 SUMMARY:其他中国语文成绩（ACL，适用于非华语申请人）/ 
  音乐资历 / 其他语言 / 过往学历 提交截止
 DESCRIPTION:4月21日 17:00（如适用）（香港时间，已确认）\n\
  n小贴士：只在你有这些成绩或资历时才需要提交。没有
- 的话不用做任何事。\n\n官方来源：\nJUPAS 重要日期（PDF
- ） https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissions%20Exerci
- se%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines.pdf
+ 的话不用做任何事。\n\n官方来源：\nJUPAS 2027 重要日期（
+ PDF） https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissions%20Exe
+ rcise%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines%20V1.1.pdf
 URL:https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissions%20Exercis
- e%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines.pdf
+ e%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines%20V1.1.pdf
 CATEGORIES:提交材料
 STATUS:CONFIRMED
 BEGIN:VALARM
