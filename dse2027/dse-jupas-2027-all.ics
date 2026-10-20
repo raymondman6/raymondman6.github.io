@@ -682,18 +682,22 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:recheck@dse2027.local
-DTSTAMP:20261020T073728Z
-SEQUENCE:1
+DTSTAMP:20261020T074539Z
+SEQUENCE:2
 DTSTART:20270812T010000Z
 DTEND:20270812T090000Z
 SUMMARY:复核成绩后申请重新考虑（8月12日 09:00–17:00）
 DESCRIPTION:8月12日 09:00–17:00（香港时间，已确认）\n\n小贴
  士：只适用于考评局复核后科目等级提升的同学：在 8月
  12日 09:00–17:00（香港时间）通过 JUPAS 提交重新考虑申请
- 。结果 8月19日 09:00 公布。\n\n官方来源：\nJUPAS 2027 重要
- 日期（PDF） https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissi
- ons%20Exercise%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines%2
- 0V1.1.pdf
+ 。结果 8月19日 09:00 公布。如已用过放榜后的免费修改、
+ 想再重新提交课程选择，需在 8月12日 17:00（香港时间）
+ 前缴 HK$250 一次性重新提交费。\n\n官方来源：\nJUPAS 2027 
+ 重要日期（PDF） https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20A
+ dmissions%20Exercise%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadl
+ ines%20V1.1.pdf\nJUPAS 申请重新考虑 https://www.jupas.edu.hk/en/appl
+ ication-procedures/post-hkdse-exam-results-announcement/main-round-offer/r
+ equest-for-reconsideration-of-application
 URL:https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissions%20Exercis
  e%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines%20V1.1.pdf
 CATEGORIES:放榜
