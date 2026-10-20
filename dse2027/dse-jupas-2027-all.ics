@@ -381,11 +381,12 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:acl@dse2027.local
-DTSTAMP:20261018T112710Z
+DTSTAMP:20261020T073728Z
+SEQUENCE:1
 DTSTART:20270421T083000Z
 DTEND:20270421T090000Z
-SUMMARY:应用学习 / 音乐资历 / 其他语言 / 过往学历 提交截
- 止
+SUMMARY:其他中国语文成绩（ACL，适用于非华语申请人）/ 
+ 音乐资历 / 其他语言 / 过往学历 提交截止
 DESCRIPTION:4月21日 17:00（如适用）（香港时间，已确认）\n\
  n小贴士：只在你有这些成绩或资历时才需要提交。没有
  的话不用做任何事。\n\n官方来源：\nJUPAS 重要日期（PDF
@@ -397,20 +398,21 @@ CATEGORIES:提交材料
 STATUS:CONFIRMED
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:还有 14 天：应用学习 / 音乐资历 / 其他语言 / 
- 过往学历 提交截止
+DESCRIPTION:还有 14 天：其他中国语文成绩（ACL，适用于非
+ 华语申请人）/ 音乐资历 / 其他语言 / 过往学历 提交截
+ 止
 TRIGGER:-P14D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:还有 7 天：应用学习 / 音乐资历 / 其他语言 / 过
- 往学历 提交截止
+DESCRIPTION:还有 7 天：其他中国语文成绩（ACL，适用于非华
+ 语申请人）/ 音乐资历 / 其他语言 / 过往学历 提交截止
 TRIGGER:-P7D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:明天：应用学习 / 音乐资历 / 其他语言 / 过往学
- 历 提交截止
+DESCRIPTION:明天：其他中国语文成绩（ACL，适用于非华语申
+ 请人）/ 音乐资历 / 其他语言 / 过往学历 提交截止
 TRIGGER:-P1D
 END:VALARM
 END:VEVENT
@@ -680,76 +682,94 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:recheck@dse2027.local
-DTSTAMP:20261018T112710Z
-DTSTART;VALUE=DATE:20270812
-DTEND;VALUE=DATE:20270813
-SUMMARY:复核成绩后申请重新考虑
-DESCRIPTION:8月12日（香港时间，已确认）\n\n小贴士：如果
- 你申请了复核并改了分，在这天前通过 JUPAS 申请大学重
- 新考虑。\n\n官方来源：\nJUPAS 重要日期 https://www.jupas.edu.
- hk/en/application-procedures/application-other-submission-deadline/applica
- tion-key-dates-and-deadlines
-URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
- bmission-deadline/application-key-dates-and-deadlines
+DTSTAMP:20261020T073728Z
+SEQUENCE:1
+DTSTART:20270812T010000Z
+DTEND:20270812T090000Z
+SUMMARY:复核成绩后申请重新考虑（8月12日 09:00–17:00）
+DESCRIPTION:8月12日 09:00–17:00（香港时间，已确认）\n\n小贴
+ 士：只适用于考评局复核后科目等级提升的同学：在 8月
+ 12日 09:00–17:00（香港时间）通过 JUPAS 提交重新考虑申请
+ 。结果 8月19日 09:00 公布。\n\n官方来源：\nJUPAS 2027 重要
+ 日期（PDF） https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissi
+ ons%20Exercise%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines%2
+ 0V1.1.pdf
+URL:https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissions%20Exercis
+ e%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines%20V1.1.pdf
 CATEGORIES:放榜
 STATUS:CONFIRMED
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:还有 14 天：复核成绩后申请重新考虑
+DESCRIPTION:还有 14 天：复核成绩后申请重新考虑（8月12日 0
+ 9:00–17:00）
 TRIGGER:-P14D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:还有 7 天：复核成绩后申请重新考虑
+DESCRIPTION:还有 7 天：复核成绩后申请重新考虑（8月12日 09
+ :00–17:00）
 TRIGGER:-P7D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:明天：复核成绩后申请重新考虑
+DESCRIPTION:明天：复核成绩后申请重新考虑（8月12日 09:00–
+ 17:00）
 TRIGGER:-P1D
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:recheck-result@dse2027.local
-DTSTAMP:20261018T112710Z
-DTSTART;VALUE=DATE:20270819
-DTEND;VALUE=DATE:20270820
-SUMMARY:复核后录取结果公布
-DESCRIPTION:8月19日（香港时间，已确认）\n\n小贴士：只适
- 用于申请了重新考虑的同学。\n\n官方来源：\nJUPAS 重要
- 日期 https://www.jupas.edu.hk/en/application-procedures/application-othe
- r-submission-deadline/application-key-dates-and-deadlines
-URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
- bmission-deadline/application-key-dates-and-deadlines
+DTSTAMP:20261020T073728Z
+SEQUENCE:1
+DTSTART:20270819T010000Z
+DTEND:20270819T020000Z
+SUMMARY:复核后录取结果公布（09:00）· 当天17:00前接受
+DESCRIPTION:8月19日 09:00 公布；17:00 前接受（香港时间，已
+ 确认）\n\n小贴士：只适用于申请了重新考虑的同学。如
+ 获 offer，要在当天 17:00（香港时间）前接受。一旦获复
+ 核后 offer，原主轮 offer 会立即撤回，不能恢复。\n\n官方
+ 来源：\nJUPAS 2027 重要日期（PDF） https://www.jupas.edu.hk/f/pag
+ e/231/JUPAS%202027%20Admissions%20Exercise%20%E2%80%93%20Application%20Key
+ %20Dates%20and%20Deadlines%20V1.1.pdf\nJUPAS 主轮及复核后放榜 http
+ s://www.jupas.edu.hk/en/application-procedures/post-hkdse-exam-results-ann
+ ouncement/main-round-offer
+URL:https://www.jupas.edu.hk/f/page/231/JUPAS%202027%20Admissions%20Exercis
+ e%20%E2%80%93%20Application%20Key%20Dates%20and%20Deadlines%20V1.1.pdf
 CATEGORIES:放榜
 STATUS:CONFIRMED
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:还有 14 天：复核后录取结果公布
+DESCRIPTION:还有 14 天：复核后录取结果公布（09:00）· 当天
+ 17:00前接受
 TRIGGER:-P14D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:还有 7 天：复核后录取结果公布
+DESCRIPTION:还有 7 天：复核后录取结果公布（09:00）· 当天1
+ 7:00前接受
 TRIGGER:-P7D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:明天：复核后录取结果公布
+DESCRIPTION:明天：复核后录取结果公布（09:00）· 当天17:00
+ 前接受
 TRIGGER:-P1D
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:clearing@dse2027.local
-DTSTAMP:20261018T112710Z
+DTSTAMP:20261020T073728Z
+SEQUENCE:1
 DTSTART;VALUE=DATE:20270824
 DTEND;VALUE=DATE:20270825
 SUMMARY:补选（Clearing Round）结果及接受截止（暂定）
 DESCRIPTION:8月24日（可能更改）（香港时间，暂定）\n\n小
- 贴士：主轮没拿到心仪学位的同学还有机会。留意 JUPAS 
- 通知。\n\n官方来源：\nJUPAS 重要日期 https://www.jupas.edu.hk/
- en/application-procedures/application-other-submission-deadline/applicatio
- n-key-dates-and-deadlines
+ 贴士：只有未获主轮 offer、也未获复核后 offer 的合资格
+ 申请人，才可能获补选考虑。拿到主轮或复核后 offer 的
+ 人，无论接受还是拒绝，都不会进入补选，所以不要为
+ 了等补选而拒绝 offer。留意 JUPAS 通知。\n\n官方来源：\nJ
+ UPAS 重要日期 https://www.jupas.edu.hk/en/application-procedures/appli
+ cation-other-submission-deadline/application-key-dates-and-deadlines
 URL:https://www.jupas.edu.hk/en/application-procedures/application-other-su
  bmission-deadline/application-key-dates-and-deadlines
 CATEGORIES:放榜
