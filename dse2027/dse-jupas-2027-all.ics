@@ -799,34 +799,38 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:s-vtc@dse2027.local
-DTSTAMP:20261102T020000Z
+DTSTAMP:20261106T020000Z
 DTSTART;VALUE=DATE:20261105
-DTEND;VALUE=DATE:20261106
-SUMMARY:[副学士] VTC 全日制中六程度课程开始接受申请
-DESCRIPTION:11月5日（香港时间，已确认）\n\n小贴士：VTC（IV
- E 等）2027/28 学年全日制中六或以上课程开始报名，截止
- 日期官方未公布。想把高级文凭当后备可以留意，报名
- 不影响 JUPAS。\n\n官方来源：\nVTC 入学申请（中六或以上
- ） https://www.vtc.edu.hk/admission/tc/admission-s6/
-URL:https://www.vtc.edu.hk/admission/tc/admission-s6/
+DTEND;VALUE=DATE:20270301
+SUMMARY:[副学士] VTC 全日制中六程度课程申请期（第一阶段）
+DESCRIPTION:11月5日 – 2027年2月28日（香港时间，已确认）\n\n小贴士：VTC（IVE 等）2027/28 学年全日制中六或以上课程第一阶段报名进行中。2月28日或之前交表并缴费（HK$180），有机会获面试，并可能于 3月下旬起获有条件录取。也可经 E-APP 报；报名不影响 JUPAS。\n\n官方来源：\nVTC 入学申请（中六或以上） https://www.vtc.edu.hk/admission/tc/admission-s6/\n第一阶段申请程序 https://www.vtc.edu.hk/admission/tc/admission-s6/application-procedures-s6-round-1-261105-270228/
+URL:https://www.vtc.edu.hk/admission/tc/admission-s6/application-procedures-s6-round-1-261105-270228/
+CATEGORIES:副学士
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:s-vtc-deadline@dse2027.local
+DTSTAMP:20261106T020000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:[副学士] VTC 第一阶段申请截止
+DESCRIPTION:2027年2月28日（香港时间，已确认）\n\n小贴士：这天或之前交表并缴申请费，才有机会获面试，并可能于 3月下旬起获有条件录取。之后仍可申请，但要参加 7月统一收生。\n\n官方来源：\n第一阶段申请程序 https://www.vtc.edu.hk/admission/tc/admission-s6/application-procedures-s6-round-1-261105-270228/
+URL:https://www.vtc.edu.hk/admission/tc/admission-s6/application-procedures-s6-round-1-261105-270228/
 CATEGORIES:副学士
 STATUS:CONFIRMED
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:还有 14 天：[副学士] VTC 全日制中六程度课程开
- 始接受申请
+DESCRIPTION:还有 14 天：[副学士] VTC 第一阶段申请截止
 TRIGGER:-P14D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:还有 7 天：[副学士] VTC 全日制中六程度课程开
- 始接受申请
+DESCRIPTION:还有 7 天：[副学士] VTC 第一阶段申请截止
 TRIGGER:-P7D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:明天：[副学士] VTC 全日制中六程度课程开始接
- 受申请
+DESCRIPTION:明天：[副学士] VTC 第一阶段申请截止
 TRIGGER:-P1D
 END:VALARM
 END:VEVENT
