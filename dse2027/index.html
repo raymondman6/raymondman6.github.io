@@ -224,7 +224,7 @@ footer b{display:block;font-size:15px;color:var(--ink);margin-bottom:4px}
     <div class="v"><span data-k="nextDays">44</span><small>天</small></div>
   </div>
   <div class="row end">
-    <div><p class="k">本程终点</p><p class="name">DSE 笔试开考</p><p class="s">2027年4月6日（暂定）</p></div>
+    <div><p class="k">本程终点</p><p class="name">DSE 笔试开考</p><p class="s">2027年4月6日（已确认）</p></div>
     <div class="v"><span data-k="dse">169</span><small>天</small></div>
   </div>
   <div class="year" aria-label="2026年9月至2027年8月进度">
@@ -248,7 +248,7 @@ footer b{display:block;font-size:15px;color:var(--ink);margin-bottom:4px}
 
 <section>
   <h2>我的考试路线</h2>
-  <p class="sub">4月8日至26日，全部上午场。日期暂定，以准考证为准。</p>
+  <p class="sub">4月8日至26日，全部上午场。日期已按考评局 2026-11-06 修订版确认；考场以准考证为准。</p>
   <div class="strip">
     <div class="stops">
       <div class="stop"><span class="nm">中文</span><span class="rail"></span><span class="d">4/8</span><span class="w">周四</span></div>
@@ -325,10 +325,10 @@ const EVENTS = [
  note:'在 JUPAS 网站开账户、填资料、缴 HK$500 申请费。这段时间内改课程选择（志愿）免费，可以先填上，之后慢慢调。身份证明文件、特殊需要（残疾）资料也要在 12月2日 17:00 前交。',
  links:[['JUPAS 申请期及费用','https://www.jupas.edu.hk/en/application-procedures/application-other-submission-deadline/application-period-and-fee']],
  ics:{s:'2026-12-02T16:00',e:'2026-12-02T17:00',title:'JUPAS 正常申请截止 (17:00)'}},
-{id:'dse-dates-final',start:'2026-11-01',end:'2026-11-10',status:'tbc',cat:'考试',
- title:'考评局落实英语文学、科技与生活、体育、音乐考试日期',when:'2026年11月上旬',
- note:'只影响选了这几科的同学。没有选的话可以跳过；有选的话，届时回来看最新时间表。',
- links:[['考评局通告 No.8（PDF）','https://www.hkeaa.edu.hk/DocLibrary/Circulars/HKDSE/HKDSE_Exam_Circular_No8_2027_Examination_Timetable_and_Date_of_Release_of_Results_E.pdf']],ics:false},
+{id:'dse-dates-final',start:'2026-11-06',status:'ok',cat:'考试',
+ title:'考评局已公布 2027 考试时间表（修订版）',when:'2026年11月6日公布',
+ note:'考评局已落实英语文学、科技与生活、体育、音乐的考试日期，并发布完整笔试时间表（修订版）。你的科目（中英数公社、经济、M2、BAFS）日期与原先暂定表一致，现已确认。',
+ links:[['最终时间表通告（PDF，2026-11-06）','https://www.hkeaa.edu.hk/DocLibrary/Circulars/HKDSE/HKDSE_Finalised_Examination_Timetable_for_2027_Examination.pdf'],['2027 DSE 时间表（修订版 PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']],ics:false},
 {id:'cuhk-nj-adv',start:'2026-11-12T23:59',status:'ok',cat:'参考',
  title:'中大非联招 提前轮截止',en:'CUHK Non-JUPAS Advance Offer Round',when:'11月12日 23:59（常规轮 2027年1月7日 23:59）',
  note:'非联招（Non-JUPAS）主要给持非 HKDSE 资格的申请人。本地 DSE 考生走 JUPAS 就可以，这一条只作参考。',
@@ -389,26 +389,26 @@ const EVENTS = [
  title:'英文科说话考试',en:'English Language Speaking',when:'3月9日 – 18日（特别考场 3月20日）',
  note:'每人只考一节，你的具体日期和时间以准考证为准。多做小组讨论练习，开口说就是进步。',
  links:[['HKEAA 考试时间表','https://www.hkeaa.edu.hk/en/hkdse/event_timetable/']]},
-{id:'dse-start',action:true,start:'2027-04-06',end:'2027-05-03',status:'tbc',cat:'考试',flag:true,
+{id:'dse-start',action:true,start:'2027-04-06',end:'2027-05-03',status:'ok',cat:'考试',flag:true,
  title:'HKDSE 笔试开始',en:'Written examinations',when:'4月6日 – 5月3日（5月4日为后备日）',
- note:'正式开考。按准考证和时间表查自己每一科的日子，前一晚准备好准考证、身份证和文具，早点睡。',
+ note:'考评局已于 2026-11-06 公布修订版时间表，笔试日期已确认。按准考证查考场；前一晚准备好准考证、身份证和文具，早点睡。',
  links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'chi',mine:true,start:'2027-04-08',status:'tbc',cat:'考试',title:'中国语文 卷一、卷二',en:'Chinese Language 1, 2',when:'4月8日（四）上午',
- note:'核心科目第一场。时间表写明在上午（AM）进行，确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'eng12',mine:true,start:'2027-04-09',status:'tbc',cat:'考试',title:'英国语文 卷一、卷二',en:'English Language 1, 2',when:'4月9日（五）上午',
- note:'阅读和写作。确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'eng3',mine:true,start:'2027-04-10',status:'tbc',cat:'考试',title:'英国语文 卷三（聆听及综合能力）',en:'English Language 3',when:'4月10日（六）上午',
- note:'记得测试耳机 / 收音机安排，按准考证的考场要求准备。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'math',mine:true,start:'2027-04-12',status:'tbc',cat:'考试',title:'数学必修部分 卷一、卷二',en:'Mathematics Compulsory Part 1, 2',when:'4月12日（一）上午',
- note:'带好考评局认可的计算机和备用电池。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'csd',mine:true,start:'2027-04-13',status:'tbc',cat:'考试',title:'公民与社会发展',en:'Citizenship and Social Development',when:'4月13日（二）上午',
- note:'核心科目最后一场，之后就是你的选修科了。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'econ',mine:true,start:'2027-04-22',status:'tbc',cat:'考试',title:'经济 卷一、卷二',en:'Economics 1, 2',when:'4月22日（四）上午',
- note:'公社之后隔了 9 天，是你的第一科选修。中间这段正好用来做经济历届试题。确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'m2',mine:true,start:'2027-04-23',status:'tbc',cat:'考试',title:'数学延伸部分 单元二（M2）',en:'Mathematics Extended Part Module 2',when:'4月23日（五）上午',
- note:'紧接经济的第二天。M1 和 M2 同一节考试，你考的是 M2，进场前确认试卷是单元二。确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
-{id:'bafs',mine:true,start:'2027-04-26',status:'tbc',cat:'考试',title:'企业、会计与财务概论 卷一、卷二',en:'BAFS 1, 2',when:'4月26日（一）上午',
- note:'M2 之后隔一个周末，是你的最后一科。考完就全部结束啦！确切开考时间看准考证。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'chi',mine:true,start:'2027-04-08',status:'ok',cat:'考试',title:'中国语文 卷一、卷二',en:'Chinese Language 1, 2',when:'4月8日（四）08:30–10:00 / 10:45–13:00',
+ note:'核心科目第一场。时间已按考评局 2026-11-06 修订版时间表确认；考场以准考证为准。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'eng12',mine:true,start:'2027-04-09',status:'ok',cat:'考试',title:'英国语文 卷一、卷二',en:'English Language 1, 2',when:'4月9日（五）08:30–10:00 / 11:00–13:00',
+ note:'阅读和写作。时间已按 2026-11-06 修订版时间表确认；考场以准考证为准。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'eng3',mine:true,start:'2027-04-10',status:'ok',cat:'考试',title:'英国语文 卷三（聆听及综合能力）',en:'English Language 3',when:'4月10日（六）约 09:15–12:10（聆听，报到时间看考场类型）',
+ note:'记得测试耳机 / 收音机安排。时间已按 2026-11-06 修订版确认；电台试场报到 08:30，校内广播/USB 试场 08:45。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'math',mine:true,start:'2027-04-12',status:'ok',cat:'考试',title:'数学必修部分 卷一、卷二',en:'Mathematics Compulsory Part 1, 2',when:'4月12日（一）08:30–10:45 / 11:30–12:45',
+ note:'带好考评局认可的计算机和备用电池。时间已按 2026-11-06 修订版确认。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'csd',mine:true,start:'2027-04-13',status:'ok',cat:'考试',title:'公民与社会发展',en:'Citizenship and Social Development',when:'4月13日（二）08:30–10:30',
+ note:'核心科目最后一场，之后就是你的选修科了。时间已按 2026-11-06 修订版确认。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'econ',mine:true,start:'2027-04-22',status:'ok',cat:'考试',title:'经济 卷一、卷二',en:'Economics 1, 2',when:'4月22日（四）08:30–09:30 / 10:15–12:45',
+ note:'公社之后隔了 9 天，是你的第一科选修。中间这段正好用来做经济历届试题。时间已按 2026-11-06 修订版确认。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'m2',mine:true,start:'2027-04-23',status:'ok',cat:'考试',title:'数学延伸部分 单元二（M2）',en:'Mathematics Extended Part Module 2',when:'4月23日（五）08:30–11:00',
+ note:'紧接经济的第二天。M1 和 M2 同一节考试，你考的是 M2，进场前确认试卷是单元二。时间已按 2026-11-06 修订版确认。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
+{id:'bafs',mine:true,start:'2027-04-26',status:'ok',cat:'考试',title:'企业、会计与财务概论 卷一、卷二',en:'BAFS 1, 2',when:'4月26日（一）08:30–09:30 / 10:15–12:45',
+ note:'M2 之后隔一个周末，是你的最后一科。考完就全部结束啦！时间已按 2026-11-06 修订版确认。',links:[['2027 DSE 时间表（PDF）','https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Exam_Timetable/2027_DSE_Timetable.pdf']]},
 {id:'acl',start:'2027-04-21T17:00',status:'ok',cat:'提交材料',
  title:'其他中国语文成绩（ACL，适用于非华语申请人）/ 音乐资历 / 其他语言 / 过往学历 提交截止',en:'ACL, music, other languages, prior qualifications',when:'4月21日 17:00（如适用）',
  note:'只在你有这些成绩或资历时才需要提交。没有的话不用做任何事。',
@@ -511,7 +511,7 @@ const SUBDEGREE = {
  ]
 };
 const PATHS=[['mainland','内地高校（DSE 收生）',MAINLAND],['subdegree','副学士 / 高级文凭',SUBDEGREE]];
-const UPDATED='2026-11-06';
+const UPDATED='2026-11-07';
 const SITES=[
  ['JUPAS 大学联合招生办法','https://www.jupas.edu.hk'],
  ['香港考试及评核局 HKEAA','https://www.hkeaa.edu.hk'],
