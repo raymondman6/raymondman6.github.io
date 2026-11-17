@@ -345,10 +345,10 @@ const EVENTS = [
  title:'学校考生退考截止',en:'Withdrawal deadline (school candidates)',when:'11月30日',
  note:'如果决定不考某科，要在这天之前通过学校退考。',
  links:[['HKEAA 考试时间表','https://www.hkeaa.edu.hk/en/hkdse/event_timetable/']]},
-{id:'mainland',start:'2026-12-01',end:'2026-12-31',status:'na',cat:'内地升学',
- title:'内地高校免试招收香港学生 2027/28 报名',en:'Mainland admission scheme',when:'未公布（参考去年：12月1日 – 31日）',
- note:'今年的日期还没公布。去年是 2025年12月1日至31日在 eea.gd.gov.cn 网上报名，2026年1月31日前确认缴费，学生学习概览（SLP）可上传到 2026年6月14日。如果考虑内地升学，12月初留意教育局页面。',
- links:[['教育局 计划页面','https://www.edb.gov.hk/en/edu-system/postsecondary/policy-doc/pilot-scheme.html']],ics:false},
+{id:'mainland',start:'2026-12-01',end:'2026-12-31',status:'ok',cat:'内地升学',
+ title:'内地高校免试招收香港学生 2027/28 报名',en:'Mainland admission scheme',when:'12月1日 – 31日',
+ note:'教育局已公布：2027/28 学年文凭试收生计划网上报名期为 2026年12月1日至31日，共 169 所内地高校参加。报名后须于 2027年1月10日或之前查阅并确认资格审核结果（如须补交资料，则 1月23日或之前）；通过审核者须于 1月31日或之前缴报名费港币 460 元。录取名单于 2027年7月下旬公布。完整时间点在「其他路径」。',
+ links:[['政府新闻稿（2026年11月16日）','https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm'],['教育局 计划页面','https://www.edb.gov.hk/admissionscheme']],ics:false},
 {id:'jupas-late',start:'2026-12-04T09:00',end:'2027-01-13T17:00',status:'ok',cat:'报名',
  title:'JUPAS 迟交申请',en:'Late Application',when:'12月4日 09:00 – 2027年1月13日 17:00',
  note:'错过正常申请期还可以迟交，但费用变成 HK$1,000。最好别走到这一步。',
@@ -457,9 +457,10 @@ const EVENTS = [
 const MAINLAND = {
  intro:'内地高校招收香港中学文凭考试学生计划（俗称「文凭试收生计划 / 免试收生」）：内地高校直接凭 DSE 成绩录取，不用另考内地联招试。',
  facts:[
-  ['是什么','2026/27 学年共 165 所内地高校参加，按 DSE 成绩择优录取当年的香港考生。2027/28 的院校名单未公布。',[['政府新闻稿（2025年12月）','https://www.info.gov.hk/gia/general/202512/01/P2025120100289.htm']]],
+  ['是什么','2027/28 学年共 169 所内地高校参加（分布内地 21 个省／直辖市及两个自治区），按 DSE 成绩择优录取当年的香港考生，不用另考内地联招试。',[['政府新闻稿（2026年11月16日）','https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm'],['教育局 计划页面','https://www.edb.gov.hk/admissionscheme']]],
   ['最低要求','一般为「3、3、2、A」：中文、英文 Level 3 或以上，数学 Level 2 或以上，公社「达标」。很多院校、专业要求更高，或指定选修科成绩，例如清华要求核心三科都达 Level 4。',[['教育部《2026年…办法》（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/way.pdf']]],
-  ['怎么报','在广东省教育考试院网站 eea.gd.gov.cn →「报名报考」→「香港文凭试招生」网上报名。要用香港身份证、回乡证（港澳居民来往内地通行证）或居住证、证件相；2026/27 报名费 HK$460。',[['报名须知（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/NA_chinese_only.pdf'],['eea.gd.gov.cn','https://eea.gd.gov.cn/']]],
+  ['校长推荐计划','每间中学有 8 个名额。经校长推荐申请的最低要求：公社「达标」，中文、英文、数学三科总分须达 8 分或以上，且每科不低于 2 分。这是最低要求，不等于保证录取。',[['政府新闻稿（2026年11月16日）','https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm']]],
+  ['怎么报','登入指定网站报名。往年在广东省教育考试院网站 eea.gd.gov.cn →「报名报考」→「香港文凭试招生」；2027/28 指定网站以教育局公布为准。要用香港身份证、回乡证（港澳居民来往内地通行证）或居住证、证件相；2027/28 报名费港币 460 元。',[['政府新闻稿（2026年11月16日）','https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm'],['教育局 计划页面','https://www.edb.gov.hk/admissionscheme'],['报名须知（2025年，往年参考）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/NA_chinese_only.pdf'],['eea.gd.gov.cn','https://eea.gd.gov.cn/']]],
   ['填几个志愿','最多 4 所学校，每所 4 个专业，按顺序考虑，最后只会获一所学校的一个专业录取。部分院校会安排面试或术科考试（不是每所都有）。',[['报名须知（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/NA_chinese_only.pdf']]],
   ['资助','在指定内地院校读学士的香港学生，可申请「内地大学升学资助计划」。2026/27 的免入息审查资助按院校距离分三档：每年 HK$5,900 / 6,200 / 6,500；也可选经入息审查资助。',[['教育局 资助计划','https://www.edb.gov.hk/tc/edu-system/postsecondary/policy-doc/musss/index.html'],['学资处说明','https://www.wfsfaa.gov.hk/tc/other/grantsloans/mainland/9.1.13.htm']]],
   ['另一条路：港澳台联招考试','「普通高校联合招收华侨港澳台学生」要另外考试（2026 年：3月1–15日报名，5月23–24日考试）。2027 年简章未公布。DSE 考生一般走上面的免试计划就够了。',[['2026 联招简章','https://www.gatzs.com.cn/gatzs/pz/hongkong/202601/20260120/2293447012.html'],['考评局 联招考试页','https://www.hkeaa.edu.hk/tc/ipe/jee/']]]
@@ -467,16 +468,20 @@ const MAINLAND = {
  items:[
  {id:'m-expo',start:'2026-12-05T11:00',end:'2026-12-06T18:00',status:'ok',cat:'内地升学',title:'内地高等教育展 2027/28',when:'12月5日（六）11:00–18:00、12月6日（日）10:00–18:00 · 会展 展览厅 3FG',
   note:'可以当面问各内地院校的收生要求。两天都有「2027/28 学年文凭试收生计划简介」，还有会计/金融/工商管理等专科分享会。教育局页面没写要预先登记；程序表可能更改，出发前再看一次。',links:[['教育局 教育展页面（2026年10月更新）','https://www.edb.gov.hk/sc/edu-system/postsecondary/policy-doc/Scheme_2027/Mainland_HE_Expo_2026.html'],['程序表（2026年10月23日更新）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2027/EXPO2026_Event_Program_TC.pdf']],ics:false},
- {id:'m-apply',start:'2026-12-01',status:'na',cat:'内地升学',box:['待定','12月'],title:'免试收生 网上报名',en:'Online application',when:'未公布（参考：2025年12月1日 – 31日 23:59）',
-  note:'2027/28 日期还没公布，按往年大概 12 月整个月。先准备好回乡证（要在有效期内）和证件相，报名时就要上传。',links:[['重要日程（2026年7月更新）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/IN_chinese_only.pdf'],['报名须知（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/NA_chinese_only.pdf']],ics:false},
- {id:'m-fee',start:'2027-01-31',status:'na',cat:'内地升学',box:['待定','1月'],title:'审核通过后缴费、确认报名',when:'未公布（参考：2026年1月31日前缴费，2月14日前可查考生号）',
-  note:'光提交申请不算报名成功，要等审核通过、缴费，拿到「考生号」才算。记得定期登入看状态。',links:[['报名须知（2025年）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/NA_chinese_only.pdf']],ics:false},
+ {id:'m-apply',start:'2026-12-01',end:'2026-12-31',status:'ok',cat:'内地升学',title:'免试收生 网上报名',en:'Online application',when:'12月1日 – 31日',
+  note:'教育局已公布：2026年12月1日至31日登入指定网站报名。先准备好回乡证（要在有效期内）和证件相，报名时就要上传。报名后还须查阅审核结果并缴费，才算完成报名。',links:[['政府新闻稿（2026年11月16日）','https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm'],['教育局 计划页面','https://www.edb.gov.hk/admissionscheme']]},
+ {id:'m-confirm',start:'2027-01-10',status:'ok',cat:'内地升学',title:'查阅及确认报名资格审核结果',en:'Check and confirm eligibility',when:'1月10日或之前（如须补交资料，则 1月23日或之前）',
+  note:'报名后须于 2027年1月10日或之前登入指定网站，查阅并确认资格审核结果。如系统要求补充资料，可于 1月23日或之前查阅审核结果。通过审核后，还须在 1月31日或之前缴报名费（港币 460 元）。',
+  links:[['政府新闻稿（2026年11月16日）','https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm'],['教育局 计划页面','https://www.edb.gov.hk/admissionscheme']]},
+ {id:'m-fee',start:'2027-01-31',status:'ok',cat:'内地升学',title:'审核通过后缴费、确认报名',when:'1月31日或之前（报名费港币 460 元）',
+  note:'所有通过报名资格审核的考生，须于 2027年1月31日或之前缴交报名费（港币 460 元）。光提交申请不算报名成功，要等审核通过并缴费才算完成。',
+  links:[['政府新闻稿（2026年11月16日）','https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm'],['教育局 计划页面','https://www.edb.gov.hk/admissionscheme']]},
  {id:'m-choice',start:'2027-05-14',status:'na',cat:'内地升学',box:['待定','5–6月'],title:'修改志愿 / 上传 SLP',when:'未公布（参考：志愿 2026年5月14日前；SLP 6月14日前）',
   note:'考完 DSE 后可以再调整内地志愿；上传 SLP 不是必须，但有助院校了解你。校长推荐文件由学校上传。',links:[['重要日程（2026年7月更新）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/IN_chinese_only.pdf']],ics:false},
  {id:'m-interview',start:'2027-05-20',status:'na',cat:'内地升学',box:['5–7月',''],title:'部分院校面试 / 术科考试',when:'参考：2026年5月至7月',
   note:'不是每所都有面试。报了的院校如有安排，会自己通知你，留意电邮和系统。',links:[['重要日程（2026年7月更新）','https://www.edb.gov.hk/attachment/tc/edu-system/postsecondary/policy-doc/pilot-scheme/scheme_2026/IN_chinese_only.pdf']],ics:false},
- {id:'m-offer',start:'2027-07-24',status:'na',cat:'内地升学',box:['待定','7月下旬'],title:'公布录取结果 · 补录',when:'未公布（参考 2026：7月24/26/27/28日 09:00 按志愿公布；7月28日 16:00 – 30日 16:00 补录）',
-  note:'DSE 放榜后约 10 天按第一至第四志愿分批公布。没被录取但达到最低要求，可以补录（再填 2 所学校）。同期也要留意 JUPAS 放榜（8月4日）。',links:[['政府新闻稿（2026年7月）','https://www.info.gov.hk/gia/general/202607/24/P2026072300253.htm']],ics:false}
+ {id:'m-offer',start:'2027-07-21',status:'ok',cat:'内地升学',box:['7月下旬',''],title:'公布录取结果 · 补录',when:'2027年7月下旬（具体分批日期未公布）',
+  note:'教育局已公布：院校将于 2027年7月下旬公布录取名单，并根据招生情况安排补录。具体分批日期尚未公布。同期也要留意 JUPAS 放榜（8月4日）。',links:[['政府新闻稿（2026年11月16日）','https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm'],['教育局 计划页面','https://www.edb.gov.hk/admissionscheme']],ics:false}
  ]
 };
 const SUBDEGREE = {
@@ -511,7 +516,7 @@ const SUBDEGREE = {
  ]
 };
 const PATHS=[['mainland','内地高校（DSE 收生）',MAINLAND],['subdegree','副学士 / 高级文凭',SUBDEGREE]];
-const UPDATED='2026-11-07';
+const UPDATED='2026-11-17';
 const SITES=[
  ['JUPAS 大学联合招生办法','https://www.jupas.edu.hk'],
  ['香港考试及评核局 HKEAA','https://www.hkeaa.edu.hk'],
