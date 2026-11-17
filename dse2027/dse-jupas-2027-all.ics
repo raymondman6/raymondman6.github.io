@@ -983,4 +983,90 @@ DESCRIPTION:明天：[副学士] 岭大 LiFE 资讯日（暂定）
 TRIGGER:-P1D
 END:VALARM
 END:VEVENT
+BEGIN:VEVENT
+UID:m-apply@dse2027.local
+DTSTAMP:20261117T010000Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20270101
+SUMMARY:[内地升学] 免试收生 网上报名
+DESCRIPTION:12月1日 – 31日（香港时间，已确认）\n\n小贴士
+ ：教育局已公布：2026年12月1日至31日登入指定网站报名
+ 。先准备好回乡证（要在有效期内）和证件相，报名时
+ 就要上传。报名后还须查阅审核结果并缴费，才算完成
+ 报名。\n\n官方来源：\n政府新闻稿（2026年11月16日） https
+ ://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm\n教育局 计
+ 划页面 https://www.edb.gov.hk/admissionscheme
+URL:https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm
+CATEGORIES:内地升学
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:m-confirm@dse2027.local
+DTSTAMP:20261117T010000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:[内地升学] 查阅及确认报名资格审核结果
+DESCRIPTION:1月10日或之前（如须补交资料，则 1月23日或之
+ 前）（香港时间，已确认）\n\n小贴士：报名后须于 2027
+ 年1月10日或之前登入指定网站，查阅并确认资格审核结
+ 果。如系统要求补充资料，可于 1月23日或之前查阅审核
+ 结果。通过审核后，还须在 1月31日或之前缴报名费（港
+ 币 460 元）。\n\n官方来源：\n政府新闻稿（2026年11月16日
+ ） https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm\n教
+ 育局 计划页面 https://www.edb.gov.hk/admissionscheme
+URL:https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm
+CATEGORIES:内地升学
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：[内地升学] 查阅及确认报名资格审
+ 核结果
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：[内地升学] 查阅及确认报名资格审核
+ 结果
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：[内地升学] 查阅及确认报名资格审核结果
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:m-fee@dse2027.local
+DTSTAMP:20261117T010000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:[内地升学] 审核通过后缴费、确认报名
+DESCRIPTION:1月31日或之前（报名费港币 460 元）（香港时间
+ ，已确认）\n\n小贴士：所有通过报名资格审核的考生，
+ 须于 2027年1月31日或之前缴交报名费（港币 460 元）。光
+ 提交申请不算报名成功，要等审核通过并缴费才算完成
+ 。\n\n官方来源：\n政府新闻稿（2026年11月16日） https://www
+ .info.gov.hk/gia/general/202611/16/P2026111600262.htm\n教育局 计划页
+ 面 https://www.edb.gov.hk/admissionscheme
+URL:https://www.info.gov.hk/gia/general/202611/16/P2026111600262.htm
+CATEGORIES:内地升学
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 14 天：[内地升学] 审核通过后缴费、确认
+ 报名
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:还有 7 天：[内地升学] 审核通过后缴费、确认报
+ 名
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:明天：[内地升学] 审核通过后缴费、确认报名
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
 END:VCALENDAR
